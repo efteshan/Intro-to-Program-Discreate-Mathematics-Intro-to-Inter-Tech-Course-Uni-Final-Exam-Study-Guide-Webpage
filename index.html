@@ -65,7 +65,7 @@
     font-family: 'Syne', sans-serif;
     font-size: clamp(36px, 6vw, 60px);
     font-weight: 800;
-    line-height: 1.15;
+    line-height: 1.35;
     letter-spacing: -0.02em;
     margin-bottom: 16px;
   }
@@ -84,15 +84,15 @@
   }
   .stat {
     text-align: center;
-    padding: 8px 0;
+    padding: 12px 0;
   }
   .stat-num {
     font-family: 'Syne', sans-serif;
     font-size: 42px;
     font-weight: 800;
-    line-height: 1.1;
+    line-height: 1.3;
     display: block;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
   }
   .stat-label {
     font-size: 11px;
@@ -408,14 +408,14 @@
 <body>
 
 <div class="hero">
-  <div class="hero-tag">📚 University Exam Prep</div>
+  <div class="hero-tag">University Exam Prep</div>
   <h1>Discrete <span>Mathematics</span><br>Study Guide</h1>
   <p>50 exam questions explained from scratch, worked step-by-step, with 2 practice questions each.</p>
   <div class="stats">
     <div class="stat"><span class="stat-num" style="color:var(--accent1)">50</span><span class="stat-label">Questions</span></div>
     <div class="stat"><span class="stat-num" style="color:var(--accent2)">6</span><span class="stat-label">Topics</span></div>
     <div class="stat"><span class="stat-num" style="color:var(--accent3)">100</span><span class="stat-label">Practice Q's</span></div>
-    <div class="stat"><span class="stat-num" style="color:var(--accent4)">∞</span><span class="stat-label">Best of Wishes</span></div>
+    <div class="stat"><span class="stat-num" style="color:var(--accent4)">∞</span><span class="stat-label">Best of wishes</span></div>
   </div>
 </div>
 
@@ -446,13 +446,13 @@
   <div class="q-card" id="q1">
     <div class="q-header" onclick="toggle('q1')">
       <span class="q-num">Q1</span>
-      <span class="q-title">Prove: A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C) — Distributive Law</span>
+      <span class="q-title">Prove: A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C) (Distributive Law)</span>
       <span class="q-toggle">▾</span>
     </div>
     <div class="q-body">
       <div class="block">
         <div class="block-label">💡 What this is asking</div>
-        <div class="explanation">This is the <strong>Distributive Law of Set Theory</strong>. It says "union distributes over intersection" — just like multiplication distributes over addition in algebra (a×(b+c) = a×b + a×c). We prove it by showing every element on the left side is also on the right, and vice versa.</div>
+        <div class="explanation">This is the <strong>Distributive Law of Set Theory</strong>. It says "union distributes over intersection", just like multiplication distributes over addition in algebra (a×(b+c) = a×b + a×c). We prove it by showing every element on the left side is also on the right, and vice versa.</div>
       </div>
       <div class="block">
         <div class="block-label">✅ Proof</div>
@@ -482,7 +482,7 @@ Backward: if x ∈ (A∩B)∪(A∩C) → x ∈ A∩B or x ∈ A∩C → x ∈ A 
             </div>
           </div>
           <div class="pq-item">
-            <div class="pq-q">P2. Using A={1,2,3}, B={2,3,4}, C={3,4,5} — verify: A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C)</div>
+            <div class="pq-q">P2. Using A={1,2,3}, B={2,3,4}, C={3,4,5}, verify: A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C)</div>
             <button class="show-pq-btn" onclick="revealAns(this)">Show Answer ▾</button>
             <div class="pq-ans-hidden">
               <div class="pq-a">B ∩ C = {3,4}<br>
@@ -550,7 +550,7 @@ A'∪B' = {a,b,d,e} ✓ Verified.</div>
   <div class="q-card" id="q3">
     <div class="q-header" onclick="toggle('q3')">
       <span class="q-num">Q3</span>
-      <span class="q-title">A={1,2,3,4}, B={3,4,5,6} — Find A∪B, A∩B, A−B</span>
+      <span class="q-title">A={1,2,3,4}, B={3,4,5,6}: Find A∪B, A∩B, A−B</span>
       <span class="q-toggle">▾</span>
     </div>
     <div class="q-body">
@@ -597,7 +597,7 @@ A'∪B' = {a,b,d,e} ✓ Verified.</div>
     <div class="q-body">
       <div class="block">
         <div class="block-label">💡 What this is asking</div>
-        <div class="explanation">The <strong>Power Set P(A)</strong> is the set of ALL possible subsets of A — including the empty set and A itself. If |A| = n elements, then |P(A)| = 2ⁿ subsets. Here n=3, so we get 2³ = 8 subsets.</div>
+        <div class="explanation">The <strong>Power Set P(A)</strong> is the set of ALL possible subsets of A, including the empty set and A itself. If |A| = n elements, then |P(A)| = 2ⁿ subsets. Here n=3, so we get 2³ = 8 subsets.</div>
       </div>
       <div class="block">
         <div class="block-label">✅ Answer</div>
@@ -634,7 +634,7 @@ A'∪B' = {a,b,d,e} ✓ Verified.</div>
     <div class="q-body">
       <div class="block">
         <div class="block-label">💡 What this is asking</div>
-        <div class="explanation">This is a nested set operation. Always work <strong>inside out</strong>: compute B∪C first, then intersect the result with A. Like maths with brackets — do brackets first!</div>
+        <div class="explanation">This is a nested set operation. Always work <strong>inside out</strong>: compute B∪C first, then intersect the result with A. Like maths with brackets: do brackets first!</div>
       </div>
       <div class="block">
         <div class="block-label">✅ Answer</div>
@@ -683,7 +683,7 @@ A'∪B' = {a,b,d,e} ✓ Verified.</div>
             <li data-n="✓">Is 2 ∈ B? Yes (B = {1,2,3,4,5})</li>
             <li data-n="✓">Is 3 ∈ B? Yes</li>
           </ol>
-          <div class="ans-final">A ⊆ B ✓ — Yes, A is a subset of B.</div>
+          <div class="ans-final">A ⊆ B ✓ Yes, A is a subset of B.</div>
         </div>
       </div>
       <div class="block">
@@ -1013,7 +1013,7 @@ A'∪B' = {a,b,d,e} ✓ Verified.</div>
             <div class="pq-ans-hidden"><div class="pq-a">13 hearts in 52 cards. P = 13/52 = 1/4</div></div>
           </div>
           <div class="pq-item">
-            <div class="pq-q">P2. P(drawing a face card — Jack, Queen, or King)?</div>
+            <div class="pq-q">P2. P(drawing a face card (Jack, Queen, or King))?</div>
             <button class="show-pq-btn" onclick="revealAns(this)">Show Answer ▾</button>
             <div class="pq-ans-hidden"><div class="pq-a">3 face cards × 4 suits = 12 cards. P = 12/52 = 3/13</div></div>
           </div>
@@ -1031,7 +1031,7 @@ A'∪B' = {a,b,d,e} ✓ Verified.</div>
     <div class="q-body">
       <div class="block">
         <div class="block-label">💡 What this is asking</div>
-        <div class="explanation">Same as Q11 — count the specific fruit, divide by total count.</div>
+        <div class="explanation">Same as Q11: count the specific fruit, divide by total count.</div>
       </div>
       <div class="block">
         <div class="block-label">✅ Answer</div>
@@ -1068,7 +1068,7 @@ A'∪B' = {a,b,d,e} ✓ Verified.</div>
     <div class="q-body">
       <div class="block">
         <div class="block-label">💡 What this is asking</div>
-        <div class="explanation">"Without replacement" means after you pick the first ball, you don't put it back. So the second pick changes. Use combinations: C(4,2)/C(7,2) — ways to choose 2 blue from 4, divided by ways to choose any 2 from 7.</div>
+        <div class="explanation">"Without replacement" means after you pick the first ball, you don't put it back. So the second pick changes. Use combinations: C(4,2)/C(7,2): ways to choose 2 blue from 4, divided by ways to choose any 2 from 7.</div>
       </div>
       <div class="block">
         <div class="block-label">✅ Answer</div>
@@ -1091,7 +1091,7 @@ A'∪B' = {a,b,d,e} ✓ Verified.</div>
             <div class="pq-ans-hidden"><div class="pq-a">C(3,2)/C(5,2) = 3/10</div></div>
           </div>
           <div class="pq-item">
-            <div class="pq-q">P2. Using the sequential method: P(1st blue) × P(2nd blue | 1st was blue) — verify Q16.</div>
+            <div class="pq-q">P2. Using the sequential method: P(1st blue) × P(2nd blue | 1st was blue), verify Q16.</div>
             <button class="show-pq-btn" onclick="revealAns(this)">Show Answer ▾</button>
             <div class="pq-ans-hidden"><div class="pq-a">P(1st blue) = 4/7. P(2nd blue | 1st blue) = 3/6 = 1/2. Joint = 4/7 × 1/2 = 4/14 = 2/7 ✓</div></div>
           </div>
@@ -1600,7 +1600,7 @@ Property: A × I = I × A = A</div>
     <div class="q-body">
       <div class="block">
         <div class="block-label">💡 What this is asking</div>
-        <div class="explanation">A² means A×A — multiply the matrix by itself. Use the same row×column method from Q24.</div>
+        <div class="explanation">A² means A×A: multiply the matrix by itself. Use the same row×column method from Q24.</div>
       </div>
       <div class="block">
         <div class="block-label">✅ Answer</div>
@@ -1626,7 +1626,7 @@ Property: A × I = I × A = A</div>
           <div class="pq-item">
             <div class="pq-q">P2. I² = ? (I is identity). What does this tell you about I?</div>
             <button class="show-pq-btn" onclick="revealAns(this)">Show Answer ▾</button>
-            <div class="pq-ans-hidden"><div class="pq-a">I² = I×I = I. The identity matrix squared equals itself — just like 1²=1 in regular arithmetic.</div></div>
+            <div class="pq-ans-hidden"><div class="pq-a">I² = I×I = I. The identity matrix squared equals itself, just like 1²=1 in regular arithmetic.</div></div>
           </div>
         </div>
       </div>
@@ -1781,7 +1781,7 @@ Key check: element (1,2) = element (2,1) = 3 ✓</div>
   <div class="q-card" id="q34">
     <div class="q-header" onclick="toggle('q34')">
       <span class="q-num">Q34</span>
-      <span class="q-title">Sort 8,4,7,2,6 — show 2 passes; then search for 7</span>
+      <span class="q-title">Sort 8,4,7,2,6: show 2 passes; then search for 7</span>
       <span class="q-toggle">▾</span>
     </div>
     <div class="q-body">
@@ -1847,7 +1847,7 @@ Binary Search for 3: Low=0,High=4,Mid=2→arr[2]=9&gt;3→High=1. Mid=0→arr[0]
 Binary Search for 20: Low=0,High=4,Mid=2→arr[2]=15&lt;20→Low=3. Mid=3→arr[3]=20 FOUND ✓</div>
         </div>
       </div>
-      <div class="block"><div class="block-label">🎯 Practice Questions</div><div class="pq-box"><div class="pq-header">📝 Try These</div><div class="pq-item"><div class="pq-q">P1. The input 25,20,15,10,5 is already sorted in descending order. Does bubble sort still work?</div><button class="show-pq-btn" onclick="revealAns(this)">Show Answer ▾</button><div class="pq-ans-hidden"><div class="pq-a">Yes, bubble sort always produces ascending order regardless of input. But descending input is the worst case — requires maximum swaps.</div></div></div><div class="pq-item"><div class="pq-q">P2. How many total swaps does bubble sort make on [25,20,15,10,5]?</div><button class="show-pq-btn" onclick="revealAns(this)">Show Answer ▾</button><div class="pq-ans-hidden"><div class="pq-a">n(n-1)/2 = 5×4/2 = 10 swaps (maximum, worst case for descending input).</div></div></div></div></div>
+      <div class="block"><div class="block-label">🎯 Practice Questions</div><div class="pq-box"><div class="pq-header">📝 Try These</div><div class="pq-item"><div class="pq-q">P1. The input 25,20,15,10,5 is already sorted in descending order. Does bubble sort still work?</div><button class="show-pq-btn" onclick="revealAns(this)">Show Answer ▾</button><div class="pq-ans-hidden"><div class="pq-a">Yes, bubble sort always produces ascending order regardless of input. But descending input is the worst case and requires maximum swaps.</div></div></div><div class="pq-item"><div class="pq-q">P2. How many total swaps does bubble sort make on [25,20,15,10,5]?</div><button class="show-pq-btn" onclick="revealAns(this)">Show Answer ▾</button><div class="pq-ans-hidden"><div class="pq-a">n(n-1)/2 = 5×4/2 = 10 swaps (maximum, worst case for descending input).</div></div></div></div></div>
     </div>
   </div>
 
@@ -1864,7 +1864,7 @@ Binary Search for 20: Low=0,High=4,Mid=2→arr[2]=15&lt;20→Low=3. Mid=3→arr[
 Binary Search for 6: Mid=2→arr[2]=7&gt;6→High=1. Mid=0→1&lt;6→Low=1. Mid=1→arr[1]=2&lt;6→Low=2. Low&gt;High → 6 NOT FOUND ✗</div>
         </div>
       </div>
-      <div class="block"><div class="block-label">🎯 Practice Questions</div><div class="pq-box"><div class="pq-header">📝 Try These</div><div class="pq-item"><div class="pq-q">P1. What condition ends a binary search with "not found"?</div><button class="show-pq-btn" onclick="revealAns(this)">Show Answer ▾</button><div class="pq-ans-hidden"><div class="pq-a">When Low &gt; High. The search range becomes empty, meaning the element is not in the array.</div></div></div><div class="pq-item"><div class="pq-q">P2. Sort 9,1,8,2,7 — how many passes of bubble sort until no swaps occur?</div><button class="show-pq-btn" onclick="revealAns(this)">Show Answer ▾</button><div class="pq-ans-hidden"><div class="pq-a">Needs approximately 3 to 4 passes. The final sorted result is 1,2,7,8,9.</div></div></div></div></div>
+      <div class="block"><div class="block-label">🎯 Practice Questions</div><div class="pq-box"><div class="pq-header">📝 Try These</div><div class="pq-item"><div class="pq-q">P1. What condition ends a binary search with "not found"?</div><button class="show-pq-btn" onclick="revealAns(this)">Show Answer ▾</button><div class="pq-ans-hidden"><div class="pq-a">When Low &gt; High. The search range becomes empty, meaning the element is not in the array.</div></div></div><div class="pq-item"><div class="pq-q">P2. Sort 9,1,8,2,7: how many passes of bubble sort until no swaps occur?</div><button class="show-pq-btn" onclick="revealAns(this)">Show Answer ▾</button><div class="pq-ans-hidden"><div class="pq-a">Needs approximately 3 to 4 passes. The final sorted result is 1,2,7,8,9.</div></div></div></div></div>
     </div>
   </div>
 
@@ -2218,7 +2218,7 @@ Closed form: aₙ = 3 × 2^(n-1)</div>
     <div class="q-body">
       <div class="block">
         <div class="block-label">💡 What this is asking</div>
-        <div class="explanation"><strong>Permutations P(n,r)</strong> count arrangements where ORDER DOES MATTER. Formula: P(n,r) = n! / (n-r)!. Think: 1st place, 2nd place — order matters in races!</div>
+        <div class="explanation"><strong>Permutations P(n,r)</strong> count arrangements where ORDER DOES MATTER. Formula: P(n,r) = n! / (n-r)!. Think: 1st place, 2nd place: order matters in races!</div>
       </div>
       <div class="block">
         <div class="block-label">✅ Answer</div>
@@ -2256,7 +2256,7 @@ Closed form: aₙ = 3 × 2^(n-1)</div>
     <div class="q-body">
       <div class="block">
         <div class="block-label">💡 What this is asking</div>
-        <div class="explanation">A committee has no specific roles — just membership. Order doesn't matter. Use <strong>combinations C(12,4)</strong>.</div>
+        <div class="explanation">A committee has no specific roles, just membership. Order doesn't matter. Use <strong>combinations C(12,4)</strong>.</div>
       </div>
       <div class="block">
         <div class="block-label">✅ Answer</div>
@@ -2297,7 +2297,7 @@ Closed form: aₙ = 3 × 2^(n-1)</div>
     <div class="q-body">
       <div class="block">
         <div class="block-label">💡 What this is asking</div>
-        <div class="explanation">Arranging ALL n people in a row = n! (n factorial). Order matters here — A,B,C is different from B,A,C. This is a full permutation.</div>
+        <div class="explanation">Arranging ALL n people in a row = n! (n factorial). Order matters here: A,B,C is different from B,A,C. This is a full permutation.</div>
       </div>
       <div class="block">
         <div class="block-label">✅ Answer</div>
@@ -2343,7 +2343,7 @@ Closed form: aₙ = 3 × 2^(n-1)</div>
           <ol class="steps">
             <li data-n="Setup">There are 12 possible birth months (Jan to Dec). These are our "pigeonholes".</li>
             <li data-n="Proof">With 13 people ("pigeons") and only 12 months ("holes"), by the pigeonhole principle at least one month must contain ⌈13/12⌉ = 2 people.</li>
-            <li data-n="Logic">If every month had at most 1 person → max 12 people. But we have 13 — contradiction!</li>
+            <li data-n="Logic">If every month had at most 1 person → max 12 people. But we have 13, a contradiction!</li>
           </ol>
           <div class="formula">General: n+1 items into n categories → at least one category has ≥2 items</div>
           <div class="ans-final">∴ In ANY group of 13 people, at least 2 share a birth month. ✓ (QED)</div>
