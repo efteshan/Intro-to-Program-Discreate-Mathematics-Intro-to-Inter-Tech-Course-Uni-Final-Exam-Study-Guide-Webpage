@@ -18,6 +18,9 @@
   --accent-dict: #8b5cf6;
   --accent-fn: #d97706;
   --accent-proj: #0369a1;
+  --accent-finals: #eab308;
+  --accent-code: #06b6d4;
+  --accent-cheat: #ec4899;
   --text: #e8e8f0;
   --text2: #c0c0d8;
   --muted: #7878a0;
@@ -144,11 +147,14 @@ body {
 }
 .nav-btn:hover { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.75); }
 .nav-btn.active { color: #fff; }
+.nav-btn.active.n-finals { background: rgba(234,179,8,0.25); }
 .nav-btn.active.n-list { background: rgba(224,90,43,0.25); }
 .nav-btn.active.n-tuple { background: rgba(46,158,107,0.25); }
 .nav-btn.active.n-dict { background: rgba(139,92,246,0.25); }
 .nav-btn.active.n-fn { background: rgba(217,119,6,0.25); }
+.nav-btn.active.n-code { background: rgba(6,182,212,0.25); }
 .nav-btn.active.n-proj { background: rgba(3,105,161,0.35); }
+.nav-btn.active.n-cheat { background: rgba(236,72,153,0.25); }
 
 /* MAIN */
 .main { max-width: 820px; margin: 0 auto; padding: 28px 14px 80px; }
@@ -174,11 +180,14 @@ body {
   font-size: 18px;
   flex-shrink: 0;
 }
+.sec-icon.ic-finals { background: rgba(234,179,8,0.1); }
 .sec-icon.ic-list { background: rgba(224,90,43,0.1); }
 .sec-icon.ic-tuple { background: rgba(46,158,107,0.1); }
 .sec-icon.ic-dict { background: rgba(139,92,246,0.1); }
 .sec-icon.ic-fn { background: rgba(217,119,6,0.1); }
+.sec-icon.ic-code { background: rgba(6,182,212,0.1); }
 .sec-icon.ic-proj { background: rgba(3,105,161,0.1); }
+.sec-icon.ic-cheat { background: rgba(236,72,153,0.1); }
 .sec-title {
   font-size: 17px;
   font-weight: 800;
@@ -232,11 +241,14 @@ body {
   min-width: 32px;
   text-align: center;
 }
+.q-badge.c-finals { background: var(--accent-finals); color: #000; }
 .q-badge.c-list { background: var(--accent-list); }
 .q-badge.c-tuple { background: var(--accent-tuple); }
 .q-badge.c-dict { background: var(--accent-dict); }
 .q-badge.c-fn { background: var(--accent-fn); }
+.q-badge.c-code { background: var(--accent-code); color: #000; }
 .q-badge.c-proj { background: var(--accent-proj); }
+.q-badge.c-cheat { background: var(--accent-cheat); }
 
 .q-title {
   font-size: 14px;
@@ -286,10 +298,13 @@ body {
   color: var(--text2);
   line-height: 1.65;
 }
+.concept-box.cb-finals { border-left-color: var(--accent-finals); background: rgba(234,179,8,0.08); }
 .concept-box.cb-list { border-left-color: var(--accent-list); background: rgba(224,90,43,0.08); }
 .concept-box.cb-tuple { border-left-color: var(--accent-tuple); background: rgba(46,158,107,0.08); }
 .concept-box.cb-dict { border-left-color: var(--accent-dict); background: rgba(139,92,246,0.08); }
 .concept-box.cb-fn { border-left-color: var(--accent-fn); background: rgba(217,119,6,0.08); }
+.concept-box.cb-code { border-left-color: var(--accent-code); background: rgba(6,182,212,0.08); }
+.concept-box.cb-cheat { border-left-color: var(--accent-cheat); background: rgba(236,72,153,0.08); }
 
 /* CODE BLOCK */
 pre {
@@ -540,9 +555,9 @@ code {
     <h1>Introduction to <span>Programming</span><br>Study Guide</h1>
     <p>Lab study guide: concepts, solved problems, and practice questions</p>
     <div class="stats">
-      <div class="stat"><span class="stat-num" style="color:#7c6af7">20</span><span class="stat-label">Questions</span></div>
-      <div class="stat"><span class="stat-num" style="color:#f76a6a">05</span><span class="stat-label">Topics</span></div>
-      <div class="stat"><span class="stat-num" style="color:#6af7c0">40</span><span class="stat-label">Practice Q's</span></div>
+      <div class="stat"><span class="stat-num" style="color:#7c6af7">35+</span><span class="stat-label">Questions</span></div>
+      <div class="stat"><span class="stat-num" style="color:#f76a6a">08</span><span class="stat-label">Topics</span></div>
+      <div class="stat"><span class="stat-num" style="color:#6af7c0">50+</span><span class="stat-label">Practice Q's</span></div>
     </div>
   </div>
 </div>
@@ -550,24 +565,660 @@ code {
 <!-- NAV -->
 <div class="nav-wrap">
   <div class="nav-inner">
-    <button class="nav-btn n-list active" onclick="showSec('list',this)">🔴 Lists</button>
+    <button class="nav-btn n-finals active" onclick="showSec('finals',this)">⭐ Finals Must</button>
+    <button class="nav-btn n-list" onclick="showSec('list',this)">🔴 Lists</button>
     <button class="nav-btn n-tuple" onclick="showSec('tuple',this)">🟢 Tuples</button>
     <button class="nav-btn n-dict" onclick="showSec('dict',this)">🟣 Dictionaries</button>
     <button class="nav-btn n-fn" onclick="showSec('fn',this)">🟠 Functions</button>
+    <button class="nav-btn n-code" onclick="showSec('code',this)">🔵 Code Analysis</button>
     <button class="nav-btn n-proj" onclick="showSec('proj',this)">🔵 Mini Project</button>
+    <button class="nav-btn n-cheat" onclick="showSec('cheat',this)">📖 Cheat Sheet</button>
   </div>
 </div>
 
 <!-- MAIN -->
 <div class="main">
 
+<!-- ═══════════════════ FINALS MUST SECTION ═══════════════════ -->
+<div class="section active" id="sec-finals">
+  <div class="sec-header">
+    <div class="sec-icon ic-finals">⭐</div>
+    <div>
+      <div class="sec-title" style="color:var(--accent-finals)">Topics Must Master</div>
+      <div class="sec-sub">Final Exam Preparation Guideline</div>
+    </div>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" style="background:linear-gradient(90deg, #eab308, #fde047)"></div></div>
+
+  <!-- FM1: Python Lists -->
+  <div class="q-card" id="fm1">
+    <div class="q-header" onclick="tog('fm1')">
+      <span class="q-badge c-finals">FM1</span>
+      <span class="q-title">Must Master: Python Lists</span>
+      <span class="q-arrow">▾</span>
+    </div>
+    <div class="q-body">
+      <div class="block">
+        <div class="block-label">💡 What You Must Know</div>
+        <div class="concept-box cb-finals">You must know how to <strong>create lists</strong>, <strong>add elements</strong>, <strong>iterate through lists</strong>, <strong>calculate total and average</strong>, <strong>find maximum and minimum</strong>, and <strong>filter elements</strong> based on conditions.</div>
+      </div>
+      <div class="block">
+        <div class="block-label">✅ Core Pattern</div>
+        <pre><span class="var">numbers</span> <span class="op">=</span> [<span class="num">10</span>, <span class="num">20</span>, <span class="num">30</span>, <span class="num">40</span>]
+
+<span class="var">total</span> <span class="op">=</span> <span class="fn">sum</span>(<span class="var">numbers</span>)
+<span class="var">avg</span> <span class="op">=</span> <span class="var">total</span> <span class="op">/</span> <span class="fn">len</span>(<span class="var">numbers</span>)
+
+<span class="kw">for</span> <span class="var">n</span> <span class="kw">in</span> <span class="var">numbers</span>:
+    <span class="kw">if</span> <span class="var">n</span> <span class="op">></span> <span class="var">avg</span>:
+        <span class="kw">print</span>(<span class="var">n</span>)</pre>
+        <div class="output-label">Output</div>
+        <div class="output-box">30
+40</div>
+      </div>
+      <div class="block">
+        <div class="block-label">🔍 How it works</div>
+        <ul class="steps">
+          <li data-n="1"><code>sum(numbers)</code> adds all elements: 10+20+30+40 = 100</li>
+          <li data-n="2"><code>total / len(numbers)</code> gives the average: 100/4 = 25.0</li>
+          <li data-n="3">The for loop checks each number against the average</li>
+          <li data-n="4">Only numbers greater than 25.0 (which are 30 and 40) get printed</li>
+        </ul>
+      </div>
+      <div class="block">
+        <div class="block-label">🎯 Exercise 1: Total and Average</div>
+        <div class="pq-wrap">
+          <div class="pq-top">📝 Create a list of 5 numbers and print the total and average</div>
+          <div class="pq-body">
+            <div class="pq-q">Write a program that stores 5 numbers in a list, then prints their <strong>total</strong> and <strong>average</strong>.</div>
+            <button class="reveal-btn" onclick="rev(this)">Show Answer ▾</button>
+            <div class="pq-ans">
+              <pre><span class="var">nums</span> <span class="op">=</span> []
+<span class="kw">for</span> <span class="var">i</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">5</span>):
+    <span class="var">n</span> <span class="op">=</span> <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">"Enter number: "</span>))
+    <span class="var">nums</span>.<span class="fn">append</span>(<span class="var">n</span>)
+
+<span class="var">total</span> <span class="op">=</span> <span class="fn">sum</span>(<span class="var">nums</span>)
+<span class="var">avg</span> <span class="op">=</span> <span class="var">total</span> <span class="op">/</span> <span class="fn">len</span>(<span class="var">nums</span>)
+<span class="kw">print</span>(<span class="str">"Total:"</span>, <span class="var">total</span>)
+<span class="kw">print</span>(<span class="str">"Average:"</span>, <span class="var">avg</span>)</pre>
+              <div class="output-label">Sample Output</div>
+              <div class="output-box">Total: 150
+Average: 30.0</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-label">🎯 Exercise 2: Numbers Greater Than Average</div>
+        <div class="pq-wrap">
+          <div class="pq-top">📝 Store 5 numbers and print those greater than the average</div>
+          <div class="pq-body">
+            <div class="pq-q">Store 5 numbers in a list. Calculate the average, then print only the numbers that are <strong>greater than the average</strong>.</div>
+            <button class="reveal-btn" onclick="rev(this)">Show Answer ▾</button>
+            <div class="pq-ans">
+              <pre><span class="var">nums</span> <span class="op">=</span> []
+<span class="kw">for</span> <span class="var">i</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">5</span>):
+    <span class="var">n</span> <span class="op">=</span> <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">"Enter number: "</span>))
+    <span class="var">nums</span>.<span class="fn">append</span>(<span class="var">n</span>)
+
+<span class="var">avg</span> <span class="op">=</span> <span class="fn">sum</span>(<span class="var">nums</span>) <span class="op">/</span> <span class="fn">len</span>(<span class="var">nums</span>)
+<span class="kw">print</span>(<span class="str">"Average:"</span>, <span class="var">avg</span>)
+<span class="kw">print</span>(<span class="str">"Numbers above average:"</span>)
+<span class="kw">for</span> <span class="var">n</span> <span class="kw">in</span> <span class="var">nums</span>:
+    <span class="kw">if</span> <span class="var">n</span> <span class="op">></span> <span class="var">avg</span>:
+        <span class="kw">print</span>(<span class="var">n</span>)</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-label">🎯 Exercise 3: Maximum and Minimum</div>
+        <div class="pq-wrap">
+          <div class="pq-top">📝 Find the max and min values from a list</div>
+          <div class="pq-body">
+            <div class="pq-q">Write a program that finds the <strong>maximum</strong> and <strong>minimum</strong> values from a list of numbers.</div>
+            <button class="reveal-btn" onclick="rev(this)">Show Answer ▾</button>
+            <div class="pq-ans">
+              <pre><span class="var">nums</span> <span class="op">=</span> []
+<span class="kw">for</span> <span class="var">i</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">5</span>):
+    <span class="var">n</span> <span class="op">=</span> <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">"Enter number: "</span>))
+    <span class="var">nums</span>.<span class="fn">append</span>(<span class="var">n</span>)
+
+<span class="kw">print</span>(<span class="str">"Maximum:"</span>, <span class="fn">max</span>(<span class="var">nums</span>))
+<span class="kw">print</span>(<span class="str">"Minimum:"</span>, <span class="fn">min</span>(<span class="var">nums</span>))</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-label">🎯 Exercise 4: Print Only Even Numbers</div>
+        <div class="pq-wrap">
+          <div class="pq-top">📝 Create a list and print only even numbers</div>
+          <div class="pq-body">
+            <div class="pq-q">Create a list of numbers and print only the <strong>even numbers</strong> from it.</div>
+            <button class="reveal-btn" onclick="rev(this)">Show Answer ▾</button>
+            <div class="pq-ans">
+              <pre><span class="var">nums</span> <span class="op">=</span> [<span class="num">3</span>, <span class="num">8</span>, <span class="num">15</span>, <span class="num">22</span>, <span class="num">7</span>, <span class="num">10</span>]
+
+<span class="kw">print</span>(<span class="str">"Even numbers:"</span>)
+<span class="kw">for</span> <span class="var">n</span> <span class="kw">in</span> <span class="var">nums</span>:
+    <span class="kw">if</span> <span class="var">n</span> <span class="op">%</span> <span class="num">2</span> <span class="op">==</span> <span class="num">0</span>:
+        <span class="kw">print</span>(<span class="var">n</span>)</pre>
+              <div class="output-label">Output</div>
+              <div class="output-box">Even numbers:
+8
+22
+10</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-label">🎯 Exercise 5: Sort a List</div>
+        <div class="pq-wrap">
+          <div class="pq-top">📝 Sort a list of numbers in ascending order</div>
+          <div class="pq-body">
+            <div class="pq-q">Sort a list of numbers in <strong>ascending order</strong> and print the sorted result.</div>
+            <button class="reveal-btn" onclick="rev(this)">Show Answer ▾</button>
+            <div class="pq-ans">
+              <pre><span class="var">nums</span> <span class="op">=</span> [<span class="num">40</span>, <span class="num">10</span>, <span class="num">30</span>, <span class="num">20</span>, <span class="num">50</span>]
+<span class="var">nums</span>.<span class="fn">sort</span>()
+<span class="kw">print</span>(<span class="str">"Sorted:"</span>, <span class="var">nums</span>)</pre>
+              <div class="output-label">Output</div>
+              <div class="output-box">Sorted: [10, 20, 30, 40, 50]</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FM2: Tuples -->
+  <div class="q-card" id="fm2">
+    <div class="q-header" onclick="tog('fm2')">
+      <span class="q-badge c-finals">FM2</span>
+      <span class="q-title">Must Master: Tuples</span>
+      <span class="q-arrow">▾</span>
+    </div>
+    <div class="q-body">
+      <div class="block">
+        <div class="block-label">💡 What You Must Know</div>
+        <div class="concept-box cb-finals">Tuples store <strong>fixed records</strong> that should not change. You must understand <strong>tuple unpacking</strong>, <strong>accessing tuple values</strong>, and <strong>using lambda functions</strong> to sort or find max/min in a list of tuples.</div>
+      </div>
+      <div class="block">
+        <div class="block-label">✅ Core Pattern: Tuple Unpacking</div>
+        <pre><span class="var">products</span> <span class="op">=</span> [
+    (<span class="str">"Pen"</span>, <span class="num">10</span>),
+    (<span class="str">"Book"</span>, <span class="num">40</span>),
+    (<span class="str">"Bag"</span>, <span class="num">500</span>)
+]
+
+<span class="cm"># Tuple unpacking in a loop</span>
+<span class="kw">for</span> <span class="var">name</span>, <span class="var">price</span> <span class="kw">in</span> <span class="var">products</span>:
+    <span class="kw">print</span>(<span class="var">name</span>, <span class="var">price</span>)</pre>
+        <div class="output-label">Output</div>
+        <div class="output-box">Pen 10
+Book 40
+Bag 500</div>
+      </div>
+      <div class="block">
+        <div class="block-label">✅ Using Lambda to Find Most Expensive</div>
+        <pre><span class="var">most_expensive</span> <span class="op">=</span> <span class="fn">max</span>(<span class="var">products</span>, <span class="var">key</span><span class="op">=</span><span class="kw">lambda</span> <span class="var">x</span>: <span class="var">x</span>[<span class="num">1</span>])
+<span class="kw">print</span>(<span class="str">"Most expensive:"</span>, <span class="var">most_expensive</span>)</pre>
+        <div class="output-label">Output</div>
+        <div class="output-box">Most expensive: ('Bag', 500)</div>
+      </div>
+      <div class="block">
+        <div class="block-label">🔍 How lambda works here</div>
+        <ul class="steps">
+          <li data-n="1"><code>lambda x: x[1]</code> means "for each tuple x, look at index 1 (the price)"</li>
+          <li data-n="2"><code>max()</code> compares all tuples by their price value</li>
+          <li data-n="3">The tuple with the highest price (500) is returned</li>
+        </ul>
+      </div>
+      <div class="block">
+        <div class="block-label">🎯 Exercise 6: Products and Prices</div>
+        <div class="pq-wrap">
+          <div class="pq-top">📝 Create a list of tuples storing (product, price) and print all</div>
+          <div class="pq-body">
+            <div class="pq-q">Create a list of tuples storing product name and price. Print all products and their prices using tuple unpacking.</div>
+            <button class="reveal-btn" onclick="rev(this)">Show Answer ▾</button>
+            <div class="pq-ans">
+              <pre><span class="var">products</span> <span class="op">=</span> [
+    (<span class="str">"Pen"</span>, <span class="num">10</span>),
+    (<span class="str">"Book"</span>, <span class="num">40</span>),
+    (<span class="str">"Bag"</span>, <span class="num">500</span>)
+]
+
+<span class="kw">for</span> <span class="var">name</span>, <span class="var">price</span> <span class="kw">in</span> <span class="var">products</span>:
+    <span class="kw">print</span>(<span class="var">name</span>, <span class="str">"-"</span>, <span class="var">price</span>)</pre>
+              <div class="output-label">Output</div>
+              <div class="output-box">Pen - 10
+Book - 40
+Bag - 500</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-label">🎯 Exercise 7: Most Expensive Product</div>
+        <div class="pq-wrap">
+          <div class="pq-top">📝 Find the most expensive product using lambda</div>
+          <div class="pq-body">
+            <div class="pq-q">Find the most expensive product from a list of tuples using <code>max()</code> with a <code>lambda</code> function.</div>
+            <button class="reveal-btn" onclick="rev(this)">Show Answer ▾</button>
+            <div class="pq-ans">
+              <pre><span class="var">products</span> <span class="op">=</span> [(<span class="str">"Pen"</span>, <span class="num">10</span>), (<span class="str">"Book"</span>, <span class="num">40</span>), (<span class="str">"Bag"</span>, <span class="num">500</span>)]
+<span class="var">most_expensive</span> <span class="op">=</span> <span class="fn">max</span>(<span class="var">products</span>, <span class="var">key</span><span class="op">=</span><span class="kw">lambda</span> <span class="var">x</span>: <span class="var">x</span>[<span class="num">1</span>])
+<span class="kw">print</span>(<span class="str">"Most expensive:"</span>, <span class="var">most_expensive</span>[<span class="num">0</span>], <span class="str">"-"</span>, <span class="var">most_expensive</span>[<span class="num">1</span>])</pre>
+              <div class="output-label">Output</div>
+              <div class="output-box">Most expensive: Bag - 500</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-label">🎯 Exercise 8: Average Price</div>
+        <div class="pq-wrap">
+          <div class="pq-top">📝 Calculate the average price of products</div>
+          <div class="pq-body">
+            <div class="pq-q">Calculate and print the <strong>average price</strong> of all products in a list of tuples.</div>
+            <button class="reveal-btn" onclick="rev(this)">Show Answer ▾</button>
+            <div class="pq-ans">
+              <pre><span class="var">products</span> <span class="op">=</span> [(<span class="str">"Pen"</span>, <span class="num">10</span>), (<span class="str">"Book"</span>, <span class="num">40</span>), (<span class="str">"Bag"</span>, <span class="num">500</span>)]
+
+<span class="var">total_price</span> <span class="op">=</span> <span class="num">0</span>
+<span class="kw">for</span> <span class="var">name</span>, <span class="var">price</span> <span class="kw">in</span> <span class="var">products</span>:
+    <span class="var">total_price</span> <span class="op">+=</span> <span class="var">price</span>
+
+<span class="var">avg_price</span> <span class="op">=</span> <span class="var">total_price</span> <span class="op">/</span> <span class="fn">len</span>(<span class="var">products</span>)
+<span class="kw">print</span>(<span class="str">"Average price:"</span>, <span class="var">avg_price</span>)</pre>
+              <div class="output-label">Output</div>
+              <div class="output-box">Average price: 183.33333333333334</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FM3: Dictionaries -->
+  <div class="q-card" id="fm3">
+    <div class="q-header" onclick="tog('fm3')">
+      <span class="q-badge c-finals">FM3</span>
+      <span class="q-title">Must Master: Dictionaries</span>
+      <span class="q-arrow">▾</span>
+    </div>
+    <div class="q-body">
+      <div class="block">
+        <div class="block-label">💡 What You Must Know</div>
+        <div class="concept-box cb-finals">Dictionaries store <strong>key-value pairs</strong>. You must practice <strong>dictionary creation</strong>, <strong>searching values</strong>, and building <strong>menu-driven systems</strong>. Important operations include adding entries, iterating with <code>.items()</code>, and checking if a key exists.</div>
+      </div>
+      <div class="block">
+        <div class="block-label">✅ Core Pattern</div>
+        <pre><span class="var">students</span> <span class="op">=</span> {
+    <span class="str">"S01"</span>: {<span class="str">"name"</span>: <span class="str">"Asha"</span>, <span class="str">"gpa"</span>: <span class="num">3.7</span>}
+}
+
+<span class="cm"># Adding a new student</span>
+<span class="var">students</span>[<span class="str">"S02"</span>] <span class="op">=</span> {<span class="str">"name"</span>: <span class="str">"Rahim"</span>, <span class="str">"gpa"</span>: <span class="num">3.5</span>}
+
+<span class="cm"># Iterating through all students</span>
+<span class="kw">for</span> <span class="var">sid</span>, <span class="var">info</span> <span class="kw">in</span> <span class="var">students</span>.<span class="fn">items</span>():
+    <span class="kw">print</span>(<span class="var">sid</span>, <span class="var">info</span>[<span class="str">"name"</span>])</pre>
+        <div class="output-label">Output</div>
+        <div class="output-box">S01 Asha
+S02 Rahim</div>
+      </div>
+      <div class="block">
+        <div class="block-label">🎯 Exercise 9: Student GPA Dictionary</div>
+        <div class="pq-wrap">
+          <div class="pq-top">📝 Create a dictionary storing student GPA and print all students</div>
+          <div class="pq-body">
+            <div class="pq-q">Create a dictionary with student IDs as keys and nested dictionaries (name, gpa) as values. Print all students.</div>
+            <button class="reveal-btn" onclick="rev(this)">Show Answer ▾</button>
+            <div class="pq-ans">
+              <pre><span class="var">students</span> <span class="op">=</span> {
+    <span class="str">"S01"</span>: {<span class="str">"name"</span>: <span class="str">"Asha"</span>, <span class="str">"gpa"</span>: <span class="num">3.7</span>},
+    <span class="str">"S02"</span>: {<span class="str">"name"</span>: <span class="str">"Rahim"</span>, <span class="str">"gpa"</span>: <span class="num">3.2</span>}
+}
+
+<span class="kw">for</span> <span class="var">sid</span>, <span class="var">info</span> <span class="kw">in</span> <span class="var">students</span>.<span class="fn">items</span>():
+    <span class="kw">print</span>(<span class="var">sid</span>, <span class="var">info</span>[<span class="str">"name"</span>], <span class="str">"GPA:"</span>, <span class="var">info</span>[<span class="str">"gpa"</span>])</pre>
+              <div class="output-label">Output</div>
+              <div class="output-box">S01 Asha GPA: 3.7
+S02 Rahim GPA: 3.2</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-label">🎯 Exercise 10: Filter by GPA</div>
+        <div class="pq-wrap">
+          <div class="pq-top">📝 Display students with GPA greater than 3.5</div>
+          <div class="pq-body">
+            <div class="pq-q">Display only the students whose <strong>GPA is greater than 3.5</strong>.</div>
+            <button class="reveal-btn" onclick="rev(this)">Show Answer ▾</button>
+            <div class="pq-ans">
+              <pre><span class="var">students</span> <span class="op">=</span> {
+    <span class="str">"S01"</span>: {<span class="str">"name"</span>: <span class="str">"Asha"</span>, <span class="str">"gpa"</span>: <span class="num">3.7</span>},
+    <span class="str">"S02"</span>: {<span class="str">"name"</span>: <span class="str">"Rahim"</span>, <span class="str">"gpa"</span>: <span class="num">3.2</span>},
+    <span class="str">"S03"</span>: {<span class="str">"name"</span>: <span class="str">"Nila"</span>, <span class="str">"gpa"</span>: <span class="num">3.8</span>}
+}
+
+<span class="kw">print</span>(<span class="str">"Students with GPA > 3.5:"</span>)
+<span class="kw">for</span> <span class="var">sid</span>, <span class="var">info</span> <span class="kw">in</span> <span class="var">students</span>.<span class="fn">items</span>():
+    <span class="kw">if</span> <span class="var">info</span>[<span class="str">"gpa"</span>] <span class="op">></span> <span class="num">3.5</span>:
+        <span class="kw">print</span>(<span class="var">sid</span>, <span class="var">info</span>[<span class="str">"name"</span>], <span class="var">info</span>[<span class="str">"gpa"</span>])</pre>
+              <div class="output-label">Output</div>
+              <div class="output-box">Students with GPA > 3.5:
+S01 Asha 3.7
+S03 Nila 3.8</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-label">🎯 Exercise 11: Search by Student ID</div>
+        <div class="pq-wrap">
+          <div class="pq-top">📝 Search for a student using student ID</div>
+          <div class="pq-body">
+            <div class="pq-q">Search for a student by entering their <strong>student ID</strong>. If found, display their info. If not found, show "Student not found."</div>
+            <button class="reveal-btn" onclick="rev(this)">Show Answer ▾</button>
+            <div class="pq-ans">
+              <pre><span class="var">students</span> <span class="op">=</span> {
+    <span class="str">"S01"</span>: {<span class="str">"name"</span>: <span class="str">"Asha"</span>, <span class="str">"gpa"</span>: <span class="num">3.7</span>},
+    <span class="str">"S02"</span>: {<span class="str">"name"</span>: <span class="str">"Rahim"</span>, <span class="str">"gpa"</span>: <span class="num">3.2</span>}
+}
+
+<span class="var">search_id</span> <span class="op">=</span> <span class="fn">input</span>(<span class="str">"Enter student ID: "</span>)
+<span class="kw">if</span> <span class="var">search_id</span> <span class="kw">in</span> <span class="var">students</span>:
+    <span class="var">info</span> <span class="op">=</span> <span class="var">students</span>[<span class="var">search_id</span>]
+    <span class="kw">print</span>(<span class="str">"Name:"</span>, <span class="var">info</span>[<span class="str">"name"</span>])
+    <span class="kw">print</span>(<span class="str">"GPA:"</span>, <span class="var">info</span>[<span class="str">"gpa"</span>])
+<span class="kw">else</span>:
+    <span class="kw">print</span>(<span class="str">"Student not found."</span>)</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FM4: Code Trace -->
+  <div class="q-card" id="fm4">
+    <div class="q-header" onclick="tog('fm4')">
+      <span class="q-badge c-finals">FM4</span>
+      <span class="q-title">Must Master: Code Analysis and Tracing</span>
+      <span class="q-arrow">▾</span>
+    </div>
+    <div class="q-body">
+      <div class="block">
+        <div class="block-label">💡 What You Must Know</div>
+        <div class="concept-box cb-finals">You must be able to <strong>identify data structures</strong>, <strong>trace program execution</strong>, <strong>calculate outputs</strong>, and <strong>understand loops and conditions</strong>. Practice dry-running code by writing down variable values at each step.</div>
+      </div>
+      <div class="block">
+        <div class="block-label">✅ Trace Example</div>
+        <pre><span class="var">nums</span> <span class="op">=</span> [<span class="num">5</span>, <span class="num">10</span>, <span class="num">15</span>]
+
+<span class="var">total</span> <span class="op">=</span> <span class="num">0</span>
+<span class="kw">for</span> <span class="var">n</span> <span class="kw">in</span> <span class="var">nums</span>:
+    <span class="var">total</span> <span class="op">+=</span> <span class="var">n</span>
+
+<span class="kw">print</span>(<span class="var">total</span>)</pre>
+      </div>
+      <div class="block">
+        <div class="block-label">Trace Table</div>
+        <table class="concept-table">
+          <tr><th>Step</th><th>n</th><th>total</th></tr>
+          <tr><td>1</td><td>5</td><td>5</td></tr>
+          <tr><td>2</td><td>10</td><td>15</td></tr>
+          <tr><td>3</td><td>15</td><td>30</td></tr>
+        </table>
+        <div class="output-label" style="margin-top:8px">Output</div>
+        <div class="output-box">30</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FM5: Programming Skills -->
+  <div class="q-card" id="fm5">
+    <div class="q-header" onclick="tog('fm5')">
+      <span class="q-badge c-finals">FM5</span>
+      <span class="q-title">Must Master: Menu-Driven Program Structure</span>
+      <span class="q-arrow">▾</span>
+    </div>
+    <div class="q-body">
+      <div class="block">
+        <div class="block-label">💡 What You Must Know</div>
+        <div class="concept-box cb-finals">You should practice writing programs that use <strong>loops</strong>, <strong>conditions</strong>, <strong>process lists</strong>, <strong>use dictionaries</strong>, and <strong>create menu systems</strong>. This is the typical structure of a menu-driven program.</div>
+      </div>
+      <div class="block">
+        <div class="block-label">✅ Menu-Driven Program Template</div>
+        <pre><span class="kw">while</span> <span class="kw">True</span>:
+    <span class="kw">print</span>(<span class="str">"1 Add"</span>)
+    <span class="kw">print</span>(<span class="str">"2 Display"</span>)
+    <span class="kw">print</span>(<span class="str">"3 Exit"</span>)
+
+    <span class="var">choice</span> <span class="op">=</span> <span class="fn">input</span>(<span class="str">"Enter choice: "</span>)
+
+    <span class="kw">if</span> <span class="var">choice</span> <span class="op">==</span> <span class="str">"1"</span>:
+        <span class="kw">pass</span>  <span class="cm"># add logic here</span>
+    <span class="kw">elif</span> <span class="var">choice</span> <span class="op">==</span> <span class="str">"2"</span>:
+        <span class="kw">pass</span>  <span class="cm"># display logic here</span>
+    <span class="kw">elif</span> <span class="var">choice</span> <span class="op">==</span> <span class="str">"3"</span>:
+        <span class="kw">break</span></pre>
+      </div>
+      <div class="block">
+        <div class="block-label">🔍 How it works</div>
+        <ul class="steps">
+          <li data-n="1"><code>while True</code> runs the loop forever until <code>break</code> is called</li>
+          <li data-n="2">The menu is printed every time the loop repeats</li>
+          <li data-n="3">The <code>if/elif</code> chain runs the correct action based on user input</li>
+          <li data-n="4">Option 3 calls <code>break</code> to exit the loop and end the program</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- FM6: Advanced Exercises -->
+  <div class="q-card" id="fm6">
+    <div class="q-header" onclick="tog('fm6')">
+      <span class="q-badge c-finals">FM6</span>
+      <span class="q-title">Must Master: Advanced Integrated Exercises</span>
+      <span class="q-arrow">▾</span>
+    </div>
+    <div class="q-body">
+      <div class="block">
+        <div class="block-label">💡 What You Must Know</div>
+        <div class="concept-box cb-finals">The most difficult exam questions combine <strong>lists</strong>, <strong>dictionaries</strong>, and <strong>tuples</strong> together. You must be able to store student records using all three structures and compute totals, averages, and grades.</div>
+      </div>
+      <div class="block">
+        <div class="block-label">🎯 Exercise 12: Combined Data Structures</div>
+        <div class="pq-wrap">
+          <div class="pq-top">📝 Store student records using list, dictionary, and tuple</div>
+          <div class="pq-body">
+            <div class="pq-q">Create a list of student dictionaries where each student has an id, name, and marks stored as a tuple. Compute total marks, average marks, and grade for each student.</div>
+            <button class="reveal-btn" onclick="rev(this)">Show Answer ▾</button>
+            <div class="pq-ans">
+              <pre><span class="var">students</span> <span class="op">=</span> [
+    {<span class="str">"id"</span>: <span class="str">"S01"</span>, <span class="str">"name"</span>: <span class="str">"Asha"</span>, <span class="str">"marks"</span>: (<span class="num">80</span>, <span class="num">90</span>, <span class="num">85</span>)},
+    {<span class="str">"id"</span>: <span class="str">"S02"</span>, <span class="str">"name"</span>: <span class="str">"Rahim"</span>, <span class="str">"marks"</span>: (<span class="num">60</span>, <span class="num">55</span>, <span class="num">70</span>)}
+]
+
+<span class="kw">for</span> <span class="var">s</span> <span class="kw">in</span> <span class="var">students</span>:
+    <span class="var">total</span> <span class="op">=</span> <span class="fn">sum</span>(<span class="var">s</span>[<span class="str">"marks"</span>])
+    <span class="var">avg</span> <span class="op">=</span> <span class="var">total</span> <span class="op">/</span> <span class="fn">len</span>(<span class="var">s</span>[<span class="str">"marks"</span>])
+    <span class="kw">if</span> <span class="var">avg</span> <span class="op">>=</span> <span class="num">80</span>: <span class="var">grade</span> <span class="op">=</span> <span class="str">"A"</span>
+    <span class="kw">elif</span> <span class="var">avg</span> <span class="op">>=</span> <span class="num">70</span>: <span class="var">grade</span> <span class="op">=</span> <span class="str">"B"</span>
+    <span class="kw">elif</span> <span class="var">avg</span> <span class="op">>=</span> <span class="num">60</span>: <span class="var">grade</span> <span class="op">=</span> <span class="str">"C"</span>
+    <span class="kw">else</span>: <span class="var">grade</span> <span class="op">=</span> <span class="str">"F"</span>
+    <span class="kw">print</span>(<span class="var">s</span>[<span class="str">"id"</span>], <span class="var">s</span>[<span class="str">"name"</span>], <span class="str">"Total:"</span>, <span class="var">total</span>, <span class="str">"Avg:"</span>, <span class="var">avg</span>, <span class="str">"Grade:"</span>, <span class="var">grade</span>)</pre>
+              <div class="output-label">Output</div>
+              <div class="output-box">S01 Asha Total: 255 Avg: 85.0 Grade: A
+S02 Rahim Total: 185 Avg: 61.666666666666664 Grade: C</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-label">🎯 Exercise 13: Find the Topper</div>
+        <div class="pq-wrap">
+          <div class="pq-top">📝 Write a program that finds the topper student</div>
+          <div class="pq-body">
+            <div class="pq-q">From a list of student records, find and print the <strong>student with the highest average marks</strong>.</div>
+            <button class="reveal-btn" onclick="rev(this)">Show Answer ▾</button>
+            <div class="pq-ans">
+              <pre><span class="var">students</span> <span class="op">=</span> [
+    {<span class="str">"id"</span>: <span class="str">"S01"</span>, <span class="str">"name"</span>: <span class="str">"Asha"</span>, <span class="str">"marks"</span>: (<span class="num">80</span>, <span class="num">90</span>, <span class="num">85</span>)},
+    {<span class="str">"id"</span>: <span class="str">"S02"</span>, <span class="str">"name"</span>: <span class="str">"Rahim"</span>, <span class="str">"marks"</span>: (<span class="num">60</span>, <span class="num">55</span>, <span class="num">70</span>)},
+    {<span class="str">"id"</span>: <span class="str">"S03"</span>, <span class="str">"name"</span>: <span class="str">"Nila"</span>, <span class="str">"marks"</span>: (<span class="num">95</span>, <span class="num">88</span>, <span class="num">92</span>)}
+]
+
+<span class="var">topper</span> <span class="op">=</span> <span class="kw">None</span>
+<span class="var">highest_avg</span> <span class="op">=</span> <span class="num">0</span>
+
+<span class="kw">for</span> <span class="var">s</span> <span class="kw">in</span> <span class="var">students</span>:
+    <span class="var">avg</span> <span class="op">=</span> <span class="fn">sum</span>(<span class="var">s</span>[<span class="str">"marks"</span>]) <span class="op">/</span> <span class="fn">len</span>(<span class="var">s</span>[<span class="str">"marks"</span>])
+    <span class="kw">if</span> <span class="var">avg</span> <span class="op">></span> <span class="var">highest_avg</span>:
+        <span class="var">highest_avg</span> <span class="op">=</span> <span class="var">avg</span>
+        <span class="var">topper</span> <span class="op">=</span> <span class="var">s</span>
+
+<span class="kw">print</span>(<span class="str">"Topper:"</span>, <span class="var">topper</span>[<span class="str">"name"</span>], <span class="str">"Avg:"</span>, <span class="var">highest_avg</span>)</pre>
+              <div class="output-label">Output</div>
+              <div class="output-box">Topper: Nila Avg: 91.66666666666667</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-label">🎯 Exercise 14: Above Class Average</div>
+        <div class="pq-wrap">
+          <div class="pq-top">📝 Find students with marks above the class average</div>
+          <div class="pq-body">
+            <div class="pq-q">Calculate the <strong>class average</strong> and print only students whose average marks are <strong>above the class average</strong>.</div>
+            <button class="reveal-btn" onclick="rev(this)">Show Answer ▾</button>
+            <div class="pq-ans">
+              <pre><span class="var">students</span> <span class="op">=</span> [
+    {<span class="str">"name"</span>: <span class="str">"Asha"</span>, <span class="str">"marks"</span>: (<span class="num">80</span>, <span class="num">90</span>, <span class="num">85</span>)},
+    {<span class="str">"name"</span>: <span class="str">"Rahim"</span>, <span class="str">"marks"</span>: (<span class="num">60</span>, <span class="num">55</span>, <span class="num">70</span>)},
+    {<span class="str">"name"</span>: <span class="str">"Nila"</span>, <span class="str">"marks"</span>: (<span class="num">95</span>, <span class="num">88</span>, <span class="num">92</span>)}
+]
+
+<span class="cm"># Calculate class average</span>
+<span class="var">all_avgs</span> <span class="op">=</span> []
+<span class="kw">for</span> <span class="var">s</span> <span class="kw">in</span> <span class="var">students</span>:
+    <span class="var">avg</span> <span class="op">=</span> <span class="fn">sum</span>(<span class="var">s</span>[<span class="str">"marks"</span>]) <span class="op">/</span> <span class="fn">len</span>(<span class="var">s</span>[<span class="str">"marks"</span>])
+    <span class="var">all_avgs</span>.<span class="fn">append</span>(<span class="var">avg</span>)
+
+<span class="var">class_avg</span> <span class="op">=</span> <span class="fn">sum</span>(<span class="var">all_avgs</span>) <span class="op">/</span> <span class="fn">len</span>(<span class="var">all_avgs</span>)
+<span class="kw">print</span>(<span class="str">"Class average:"</span>, <span class="var">class_avg</span>)
+
+<span class="kw">print</span>(<span class="str">"Above class average:"</span>)
+<span class="kw">for</span> <span class="var">i</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="fn">len</span>(<span class="var">students</span>)):
+    <span class="kw">if</span> <span class="var">all_avgs</span>[<span class="var">i</span>] <span class="op">></span> <span class="var">class_avg</span>:
+        <span class="kw">print</span>(<span class="var">students</span>[<span class="var">i</span>][<span class="str">"name"</span>], <span class="str">"- Avg:"</span>, <span class="var">all_avgs</span>[<span class="var">i</span>])</pre>
+              <div class="output-label">Output</div>
+              <div class="output-box">Class average: 79.44444444444444
+Above class average:
+Asha - Avg: 85.0
+Nila - Avg: 91.66666666666667</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FM7: Sample Practice Problem -->
+  <div class="q-card" id="fm7">
+    <div class="q-header" onclick="tog('fm7')">
+      <span class="q-badge c-finals">FM7</span>
+      <span class="q-title">Sample Exam Problem: Student Marks Manager</span>
+      <span class="q-arrow">▾</span>
+    </div>
+    <div class="q-body">
+      <div class="block">
+        <div class="block-label">💡 Problem Statement</div>
+        <div class="concept-box cb-finals">Write a Python program to manage student marks. Requirements: (1) Store student data using a dictionary. (2) Each record has ID, Name, and Marks. (3) Create a menu with: Add student, Search student, Display all students, Exit.</div>
+      </div>
+      <div class="block">
+        <div class="block-label">✅ Full Solution</div>
+        <pre><span class="var">students</span> <span class="op">=</span> {}
+
+<span class="kw">while</span> <span class="kw">True</span>:
+    <span class="kw">print</span>(<span class="str">"\n--- Student Marks Manager ---"</span>)
+    <span class="kw">print</span>(<span class="str">"1. Add student"</span>)
+    <span class="kw">print</span>(<span class="str">"2. Search student"</span>)
+    <span class="kw">print</span>(<span class="str">"3. Display all students"</span>)
+    <span class="kw">print</span>(<span class="str">"4. Exit"</span>)
+    <span class="var">choice</span> <span class="op">=</span> <span class="fn">input</span>(<span class="str">"Enter choice: "</span>)
+
+    <span class="kw">if</span> <span class="var">choice</span> <span class="op">==</span> <span class="str">"1"</span>:
+        <span class="var">sid</span> <span class="op">=</span> <span class="fn">input</span>(<span class="str">"Enter ID: "</span>)
+        <span class="var">name</span> <span class="op">=</span> <span class="fn">input</span>(<span class="str">"Enter Name: "</span>)
+        <span class="var">marks</span> <span class="op">=</span> <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">"Enter Marks: "</span>))
+        <span class="var">students</span>[<span class="var">sid</span>] <span class="op">=</span> {<span class="str">"name"</span>: <span class="var">name</span>, <span class="str">"marks"</span>: <span class="var">marks</span>}
+        <span class="kw">print</span>(<span class="str">"Student added."</span>)
+
+    <span class="kw">elif</span> <span class="var">choice</span> <span class="op">==</span> <span class="str">"2"</span>:
+        <span class="var">sid</span> <span class="op">=</span> <span class="fn">input</span>(<span class="str">"Enter ID to search: "</span>)
+        <span class="kw">if</span> <span class="var">sid</span> <span class="kw">in</span> <span class="var">students</span>:
+            <span class="var">info</span> <span class="op">=</span> <span class="var">students</span>[<span class="var">sid</span>]
+            <span class="kw">print</span>(<span class="str">"Name:"</span>, <span class="var">info</span>[<span class="str">"name"</span>])
+            <span class="kw">print</span>(<span class="str">"Marks:"</span>, <span class="var">info</span>[<span class="str">"marks"</span>])
+        <span class="kw">else</span>:
+            <span class="kw">print</span>(<span class="str">"Student not found."</span>)
+
+    <span class="kw">elif</span> <span class="var">choice</span> <span class="op">==</span> <span class="str">"3"</span>:
+        <span class="kw">for</span> <span class="var">sid</span>, <span class="var">info</span> <span class="kw">in</span> <span class="var">students</span>.<span class="fn">items</span>():
+            <span class="kw">print</span>(<span class="var">sid</span>, <span class="var">info</span>[<span class="str">"name"</span>], <span class="str">"Marks:"</span>, <span class="var">info</span>[<span class="str">"marks"</span>])
+
+    <span class="kw">elif</span> <span class="var">choice</span> <span class="op">==</span> <span class="str">"4"</span>:
+        <span class="kw">print</span>(<span class="str">"Program ended."</span>)
+        <span class="kw">break</span>
+    <span class="kw">else</span>:
+        <span class="kw">print</span>(<span class="str">"Invalid choice."</span>)</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- FM8: Common Errors -->
+  <div class="q-card" id="fm8">
+    <div class="q-header" onclick="tog('fm8')">
+      <span class="q-badge c-finals">FM8</span>
+      <span class="q-title">Common Errors to Avoid in the Exam</span>
+      <span class="q-arrow">▾</span>
+    </div>
+    <div class="q-body">
+      <div class="block">
+        <div class="block-label">⚠ Critical Mistakes That Cost Marks</div>
+        <div class="concept-box cb-finals">Students often lose marks because of these common mistakes. Review each one carefully before the exam.</div>
+      </div>
+      <div class="block">
+        <table class="concept-table">
+          <tr><th>#</th><th>Common Error</th><th>How to Avoid It</th></tr>
+          <tr><td>1</td><td><strong>Incorrect indentation</strong></td><td>Python uses indentation to define code blocks. Always use consistent 4-space indent inside loops, conditions, and functions.</td></tr>
+          <tr><td>2</td><td><strong>Missing append() when adding to lists</strong></td><td>You must use <code>list.append(item)</code> to add items. Writing <code>list + item</code> does not modify the original list.</td></tr>
+          <tr><td>3</td><td><strong>Wrong dictionary key access</strong></td><td>Use the exact key name: <code>dict["name"]</code> not <code>dict[name]</code> (without quotes it looks for a variable).</td></tr>
+          <tr><td>4</td><td><strong>Forgetting break in menu systems</strong></td><td>Without <code>break</code> in the exit option, your <code>while True</code> loop will run forever.</td></tr>
+          <tr><td>5</td><td><strong>Incorrect average calculation</strong></td><td>Average = total / count. Use <code>sum(list) / len(list)</code>. Make sure you do not divide by zero.</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end finals section -->
+
+
 <!-- ═══════════════════ LIST SECTION ═══════════════════ -->
-<div class="section active" id="sec-list">
+<div class="section" id="sec-list">
   <div class="sec-header">
     <div class="sec-icon ic-list">🔴</div>
     <div>
       <div class="sec-title" style="color:var(--accent-list)">Part A: Lists</div>
-      <div class="sec-sub">Mutable, ordered collection · Problems 1–5</div>
+      <div class="sec-sub">Mutable, ordered collection · Problems 1-5</div>
     </div>
   </div>
   <div class="progress-bar"><div class="progress-fill" style="background:linear-gradient(90deg, #e05a2b, #f7a84a)"></div></div>
@@ -882,7 +1533,7 @@ Without duplicates: [1, 2, 3, 4, 5]</div>
     <div class="sec-icon ic-tuple">🟢</div>
     <div>
       <div class="sec-title" style="color:var(--accent-tuple)">Part B: Tuples</div>
-      <div class="sec-sub">Immutable, ordered records · Problems 6–8</div>
+      <div class="sec-sub">Immutable, ordered records · Problems 6-8</div>
     </div>
   </div>
   <div class="progress-bar"><div class="progress-fill" style="background:linear-gradient(90deg, #2e9e6b, #6af7c0)"></div></div>
@@ -1070,7 +1721,7 @@ Last two cities: ('Khulna', 'Sylhet')</div>
     <div class="sec-icon ic-dict">🟣</div>
     <div>
       <div class="sec-title" style="color:var(--accent-dict)">Part C: Dictionaries</div>
-      <div class="sec-sub">Key-value mapping · Problems 9–13</div>
+      <div class="sec-sub">Key-value mapping · Problems 9-13</div>
     </div>
   </div>
   <div class="progress-bar"><div class="progress-fill" style="background:linear-gradient(90deg, #8b5cf6, #c084fc)"></div></div>
@@ -1294,7 +1945,7 @@ Average: 70.0</div>
         <div class="pq-wrap">
           <div class="pq-top">📝 Try This</div>
           <div class="pq-body">
-            <div class="pq-q">Extend the program: after computing the average, also print the <strong>grade</strong> for each student using: Avg ≥ 80 → A, 70–79 → B, 60–69 → C, below 60 → F.</div>
+            <div class="pq-q">Extend the program: after computing the average, also print the <strong>grade</strong> for each student using: Avg ≥ 80 → A, 70-79 → B, 60-69 → C, below 60 → F.</div>
             <button class="reveal-btn" onclick="rev(this)">Show Answer ▾</button>
             <div class="pq-ans">
               <pre><span class="kw">for</span> <span class="var">sid</span>, <span class="var">info</span> <span class="kw">in</span> <span class="var">students</span>.<span class="fn">items</span>():
@@ -1611,6 +2262,254 @@ Grade : A</div>
 </div><!-- end fn section -->
 
 
+<!-- ═══════════════════ CODE ANALYSIS SECTION ═══════════════════ -->
+<div class="section" id="sec-code">
+  <div class="sec-header">
+    <div class="sec-icon ic-code">🔵</div>
+    <div>
+      <div class="sec-title" style="color:var(--accent-code)">Code Analysis</div>
+      <div class="sec-sub">Tracing, data structures, lambda, and predicting output</div>
+    </div>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" style="background:linear-gradient(90deg, #06b6d4, #67e8f9)"></div></div>
+
+  <!-- CA1: Recognizing Data Structures -->
+  <div class="q-card" id="ca1">
+    <div class="q-header" onclick="tog('ca1')">
+      <span class="q-badge c-code">CA1</span>
+      <span class="q-title">Recognizing Data Structures in Code</span>
+      <span class="q-arrow">▾</span>
+    </div>
+    <div class="q-body">
+      <div class="block">
+        <div class="block-label">💡 Concept</div>
+        <div class="concept-box cb-code">In exam questions you must quickly recognize which data structure is being used. Look at the brackets: square brackets <code>[ ]</code> means list, parentheses <code>( )</code> means tuple, and curly braces <code>{ }</code> means dictionary.</div>
+      </div>
+      <div class="block">
+        <div class="block-label">Data Structure Recognition Table</div>
+        <table class="concept-table">
+          <tr><th>Structure</th><th>Syntax</th><th>Example</th></tr>
+          <tr><td><strong>List</strong></td><td><code>[item1, item2]</code></td><td><code>[10, 20, 30]</code></td></tr>
+          <tr><td><strong>Tuple</strong></td><td><code>(item1, item2)</code></td><td><code>("Pen", 10)</code></td></tr>
+          <tr><td><strong>Dictionary</strong></td><td><code>{key: value}</code></td><td><code>{"name": "Asha", "gpa": 3.7}</code></td></tr>
+        </table>
+      </div>
+      <div class="block">
+        <div class="block-label">✅ Example Exam Question</div>
+        <pre><span class="var">numbers</span> <span class="op">=</span> [<span class="num">10</span>, <span class="num">20</span>, <span class="num">30</span>]
+<span class="var">total</span> <span class="op">=</span> <span class="num">0</span>
+
+<span class="kw">for</span> <span class="var">n</span> <span class="kw">in</span> <span class="var">numbers</span>:
+    <span class="var">total</span> <span class="op">+=</span> <span class="var">n</span></pre>
+      </div>
+      <div class="block">
+        <div class="block-label">🔍 What you must identify</div>
+        <ul class="steps">
+          <li data-n="1"><strong>Data structure</strong>: <code>numbers</code> is a <strong>list</strong> (square brackets)</li>
+          <li data-n="2"><strong>Purpose of variables</strong>: <code>total</code> is an accumulator that stores the running sum</li>
+          <li data-n="3"><strong>Loop behavior</strong>: the <code>for</code> loop visits each element one by one</li>
+          <li data-n="4"><strong>Output</strong>: after the loop, <code>total</code> equals 60 (10 + 20 + 30)</li>
+        </ul>
+      </div>
+      <div class="block">
+        <div class="block-label">🎯 Practice Question</div>
+        <div class="pq-wrap">
+          <div class="pq-top">📝 Identify data structures and predict output</div>
+          <div class="pq-body">
+            <div class="pq-q">What data structures are used here? What is the output?<br><code>data = {"a": [1, 2], "b": [3, 4]}</code><br><code>for key, val in data.items(): print(key, sum(val))</code></div>
+            <button class="reveal-btn" onclick="rev(this)">Show Answer ▾</button>
+            <div class="pq-ans">
+              <div class="concept-box cb-code"><strong>Dictionary</strong> with <strong>lists</strong> as values. The loop unpacks each key-value pair, and <code>sum(val)</code> adds up each list.</div>
+              <div class="output-label">Output</div>
+              <div class="output-box">a 3
+b 7</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CA2: Tracing Python Programs -->
+  <div class="q-card" id="ca2">
+    <div class="q-header" onclick="tog('ca2')">
+      <span class="q-badge c-code">CA2</span>
+      <span class="q-title">Tracing Python Programs Step by Step</span>
+      <span class="q-arrow">▾</span>
+    </div>
+    <div class="q-body">
+      <div class="block">
+        <div class="block-label">💡 Concept</div>
+        <div class="concept-box cb-code">Tracing means following the code line by line, writing down the value of every variable after each step. This is called a "dry run." Build a table with columns for each variable and one row per iteration.</div>
+      </div>
+      <div class="block">
+        <div class="block-label">✅ Trace Example</div>
+        <pre><span class="var">marks</span> <span class="op">=</span> [<span class="num">60</span>, <span class="num">70</span>, <span class="num">80</span>]
+
+<span class="var">total</span> <span class="op">=</span> <span class="num">0</span>
+<span class="kw">for</span> <span class="var">m</span> <span class="kw">in</span> <span class="var">marks</span>:
+    <span class="var">total</span> <span class="op">+=</span> <span class="var">m</span></pre>
+      </div>
+      <div class="block">
+        <div class="block-label">Step-by-step Trace Table</div>
+        <table class="concept-table">
+          <tr><th>Iteration</th><th>m</th><th>total</th></tr>
+          <tr><td>1</td><td>60</td><td>60</td></tr>
+          <tr><td>2</td><td>70</td><td>130</td></tr>
+          <tr><td>3</td><td>80</td><td>210</td></tr>
+        </table>
+        <div class="output-label" style="margin-top:8px">Final value of total</div>
+        <div class="output-box">210</div>
+      </div>
+      <div class="block">
+        <div class="block-label">🎯 Practice Question</div>
+        <div class="pq-wrap">
+          <div class="pq-top">📝 Trace this code and predict the output</div>
+          <div class="pq-body">
+            <div class="pq-q">Trace the following code. Write the trace table and predict the final output.<br><code>nums = [2, 5, 8]</code><br><code>result = 1</code><br><code>for n in nums: result *= n</code><br><code>print(result)</code></div>
+            <button class="reveal-btn" onclick="rev(this)">Show Answer ▾</button>
+            <div class="pq-ans">
+              <table class="concept-table">
+                <tr><th>Iteration</th><th>n</th><th>result</th></tr>
+                <tr><td>1</td><td>2</td><td>2</td></tr>
+                <tr><td>2</td><td>5</td><td>10</td></tr>
+                <tr><td>3</td><td>8</td><td>80</td></tr>
+              </table>
+              <div class="output-label" style="margin-top:8px">Output</div>
+              <div class="output-box">80</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CA3: Lambda Functions -->
+  <div class="q-card" id="ca3">
+    <div class="q-header" onclick="tog('ca3')">
+      <span class="q-badge c-code">CA3</span>
+      <span class="q-title">Understanding Lambda Functions</span>
+      <span class="q-arrow">▾</span>
+    </div>
+    <div class="q-body">
+      <div class="block">
+        <div class="block-label">💡 Concept</div>
+        <div class="concept-box cb-code">A <strong>lambda</strong> is a short, one-line function without a name. It is often used inside <code>max()</code>, <code>min()</code>, or <code>sorted()</code> to tell Python which value to compare by. The syntax is <code>lambda parameter: expression</code>.</div>
+      </div>
+      <div class="block">
+        <div class="block-label">✅ Exam-style Example</div>
+        <pre><span class="var">products</span> <span class="op">=</span> [(<span class="str">"Pen"</span>, <span class="num">10</span>), (<span class="str">"Bag"</span>, <span class="num">500</span>)]
+<span class="var">result</span> <span class="op">=</span> <span class="fn">max</span>(<span class="var">products</span>, <span class="var">key</span><span class="op">=</span><span class="kw">lambda</span> <span class="var">x</span>: <span class="var">x</span>[<span class="num">1</span>])
+<span class="kw">print</span>(<span class="var">result</span>)</pre>
+        <div class="output-label">Output</div>
+        <div class="output-box">('Bag', 500)</div>
+      </div>
+      <div class="block">
+        <div class="block-label">🔍 How to read lambda</div>
+        <ul class="steps">
+          <li data-n="1"><code>x</code> represents each tuple in the list, one at a time</li>
+          <li data-n="2"><code>x[1]</code> means "use the second value of the tuple" (the price)</li>
+          <li data-n="3"><code>max()</code> compares all tuples by their price and returns the biggest</li>
+          <li data-n="4">So <code>("Pen", 10)</code> vs <code>("Bag", 500)</code> compares 10 vs 500, and returns Bag</li>
+        </ul>
+      </div>
+      <div class="block">
+        <div class="block-label">🎯 Practice Question</div>
+        <div class="pq-wrap">
+          <div class="pq-top">📝 Predict the output of this lambda expression</div>
+          <div class="pq-body">
+            <div class="pq-q">What is the output?<br><code>students = [("Asha", 85), ("Rahim", 92), ("Nila", 78)]</code><br><code>best = max(students, key=lambda s: s[1])</code><br><code>print(best[0])</code></div>
+            <button class="reveal-btn" onclick="rev(this)">Show Answer ▾</button>
+            <div class="pq-ans">
+              <div class="concept-box cb-code"><code>lambda s: s[1]</code> tells <code>max()</code> to compare by index 1 (the marks). Asha has 85, Rahim has 92, Nila has 78. The highest is 92, so the tuple <code>("Rahim", 92)</code> is returned. <code>best[0]</code> prints the name.</div>
+              <div class="output-label">Output</div>
+              <div class="output-box">Rahim</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CA4: Dictionary Iteration -->
+  <div class="q-card" id="ca4">
+    <div class="q-header" onclick="tog('ca4')">
+      <span class="q-badge c-code">CA4</span>
+      <span class="q-title">Understanding Dictionary Iteration</span>
+      <span class="q-arrow">▾</span>
+    </div>
+    <div class="q-body">
+      <div class="block">
+        <div class="block-label">💡 Concept</div>
+        <div class="concept-box cb-code">When you use <code>for key, value in dict.items()</code>, the loop gives you both the key and the value at each step. The first variable gets the key, the second gets the value. This is the most common way to loop through a dictionary.</div>
+      </div>
+      <div class="block">
+        <div class="block-label">✅ Example</div>
+        <pre><span class="var">students</span> <span class="op">=</span> {
+    <span class="str">"S01"</span>: {<span class="str">"name"</span>: <span class="str">"Asha"</span>, <span class="str">"gpa"</span>: <span class="num">3.8</span>}
+}
+
+<span class="kw">for</span> <span class="var">sid</span>, <span class="var">info</span> <span class="kw">in</span> <span class="var">students</span>.<span class="fn">items</span>():
+    <span class="kw">print</span>(<span class="var">sid</span>, <span class="var">info</span>[<span class="str">"name"</span>], <span class="var">info</span>[<span class="str">"gpa"</span>])</pre>
+        <div class="output-label">Output</div>
+        <div class="output-box">S01 Asha 3.8</div>
+      </div>
+      <div class="block">
+        <div class="block-label">🔍 How it works</div>
+        <ul class="steps">
+          <li data-n="1"><code>sid</code> gets the key ("S01")</li>
+          <li data-n="2"><code>info</code> gets the value, which is a nested dictionary</li>
+          <li data-n="3"><code>info["name"]</code> accesses "Asha" from the nested dictionary</li>
+          <li data-n="4"><code>info["gpa"]</code> accesses 3.8 from the nested dictionary</li>
+        </ul>
+      </div>
+      <div class="block">
+        <div class="block-label">🎯 Practice Question</div>
+        <div class="pq-wrap">
+          <div class="pq-top">📝 Predict the output of dictionary iteration</div>
+          <div class="pq-body">
+            <div class="pq-q">What does this code print?<br><code>grades = {"Math": 90, "Science": 85, "English": 78}</code><br><code>for subject, mark in grades.items():</code><br>&nbsp;&nbsp;&nbsp;&nbsp;<code>if mark >= 85: print(subject)</code></div>
+            <button class="reveal-btn" onclick="rev(this)">Show Answer ▾</button>
+            <div class="pq-ans">
+              <div class="concept-box cb-code">The loop goes through each key-value pair. It checks if the mark is 85 or higher. Math (90) passes, Science (85) passes, English (78) does not.</div>
+              <div class="output-label">Output</div>
+              <div class="output-box">Math
+Science</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CA5: Code Analysis Tips -->
+  <div class="q-card" id="ca5">
+    <div class="q-header" onclick="tog('ca5')">
+      <span class="q-badge c-code">CA5</span>
+      <span class="q-title">Code Analysis Tips: The 4-Step Process</span>
+      <span class="q-arrow">▾</span>
+    </div>
+    <div class="q-body">
+      <div class="block">
+        <div class="block-label">💡 Follow These Steps in Every Exam Question</div>
+        <div class="concept-box cb-code">Use this 4-step process every time you see a code analysis question in the exam. Following these steps carefully will help you avoid mistakes.</div>
+      </div>
+      <div class="block">
+        <table class="concept-table">
+          <tr><th>Step</th><th>Action</th><th>What to Do</th></tr>
+          <tr><td>1</td><td><strong>Identify data structure type</strong></td><td>Look at the brackets. <code>[]</code> = list, <code>()</code> = tuple, <code>{}</code> = dict</td></tr>
+          <tr><td>2</td><td><strong>Track variable values step by step</strong></td><td>Write a trace table. Update each variable after every line runs.</td></tr>
+          <tr><td>3</td><td><strong>Understand conditions and loops</strong></td><td>Check which branch runs (<code>if</code>/<code>elif</code>/<code>else</code>). Count how many times a loop repeats.</td></tr>
+          <tr><td>4</td><td><strong>Predict exact output</strong></td><td>Write down what each <code>print()</code> statement will display, including spaces and commas.</td></tr>
+        </table>
+      </div>
+      <div class="takeaway"><strong>Tip:</strong> Always write a trace table on paper during the exam. It prevents careless mistakes and earns you full marks on code analysis questions.</div>
+    </div>
+  </div>
+
+</div><!-- end code section -->
+
+
 <!-- ═══════════════════ MINI PROJECT ═══════════════════ -->
 <div class="section" id="sec-proj">
   <div class="sec-header">
@@ -1687,7 +2586,7 @@ Passed: 3</div>
         <div class="pq-wrap">
           <div class="pq-top">📝 Try This</div>
           <div class="pq-body">
-            <div class="pq-q">Add a <code>assign_grades(student_dict)</code> function that prints each student's name, marks, and grade. Grade rules: Avg ≥ 80 → A, 70–79 → B, 60–69 → C, 50–59 → D, below 50 → F.</div>
+            <div class="pq-q">Add a <code>assign_grades(student_dict)</code> function that prints each student's name, marks, and grade. Grade rules: Avg ≥ 80 → A, 70-79 → B, 60-69 → C, 50-59 → D, below 50 → F.</div>
             <button class="reveal-btn" onclick="rev(this)">Show Answer ▾</button>
             <div class="pq-ans">
               <pre><span class="kw">def</span> <span class="fn">assign_grades</span>(<span class="var">student_dict</span>):
@@ -1869,6 +2768,194 @@ Sadia 90 → A</div>
   </div>
 
 </div><!-- end proj section -->
+
+
+<!-- ═══════════════════ CHEAT SHEET SECTION ═══════════════════ -->
+<div class="section" id="sec-cheat">
+  <div class="sec-header">
+    <div class="sec-icon ic-cheat">📖</div>
+    <div>
+      <div class="sec-title" style="color:var(--accent-cheat)">Python Cheat Sheet</div>
+      <div class="sec-sub">Every function you need, with a one-sentence explanation</div>
+    </div>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" style="background:linear-gradient(90deg, #ec4899, #f9a8d4)"></div></div>
+
+  <!-- Built-in Functions -->
+  <div class="q-card" id="cs1">
+    <div class="q-header" onclick="tog('cs1')">
+      <span class="q-badge c-cheat">🛠</span>
+      <span class="q-title">Built-in Functions</span>
+      <span class="q-arrow">▾</span>
+    </div>
+    <div class="q-body">
+      <div class="block">
+        <table class="concept-table">
+          <tr><th>Function</th><th>What It Does</th><th>Example</th></tr>
+          <tr><td><code>print()</code></td><td>Displays output to the screen.</td><td><code>print("Hello")</code></td></tr>
+          <tr><td><code>input()</code></td><td>Reads a line of text from the user as a string.</td><td><code>name = input("Name: ")</code></td></tr>
+          <tr><td><code>int()</code></td><td>Converts a value to an integer number.</td><td><code>n = int("42")</code></td></tr>
+          <tr><td><code>float()</code></td><td>Converts a value to a decimal number.</td><td><code>x = float("3.14")</code></td></tr>
+          <tr><td><code>str()</code></td><td>Converts a value to a string.</td><td><code>s = str(100)</code></td></tr>
+          <tr><td><code>len()</code></td><td>Returns the number of items in a list, tuple, dict, or string.</td><td><code>len([1, 2, 3])</code> returns 3</td></tr>
+          <tr><td><code>sum()</code></td><td>Returns the total of all numbers in a list or tuple.</td><td><code>sum([10, 20])</code> returns 30</td></tr>
+          <tr><td><code>max()</code></td><td>Returns the largest value from a list or tuple.</td><td><code>max([5, 9, 2])</code> returns 9</td></tr>
+          <tr><td><code>min()</code></td><td>Returns the smallest value from a list or tuple.</td><td><code>min([5, 9, 2])</code> returns 2</td></tr>
+          <tr><td><code>range()</code></td><td>Generates a sequence of numbers for use in loops.</td><td><code>range(5)</code> gives 0,1,2,3,4</td></tr>
+          <tr><td><code>type()</code></td><td>Returns the data type of a value.</td><td><code>type(42)</code> returns int</td></tr>
+          <tr><td><code>sorted()</code></td><td>Returns a new sorted list without changing the original.</td><td><code>sorted([3, 1, 2])</code> returns [1, 2, 3]</td></tr>
+          <tr><td><code>abs()</code></td><td>Returns the absolute (positive) value of a number.</td><td><code>abs(-7)</code> returns 7</td></tr>
+          <tr><td><code>round()</code></td><td>Rounds a number to a given number of decimal places.</td><td><code>round(3.456, 2)</code> returns 3.46</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- List Methods -->
+  <div class="q-card" id="cs2">
+    <div class="q-header" onclick="tog('cs2')">
+      <span class="q-badge c-cheat">📝</span>
+      <span class="q-title">List Methods</span>
+      <span class="q-arrow">▾</span>
+    </div>
+    <div class="q-body">
+      <div class="block">
+        <table class="concept-table">
+          <tr><th>Method</th><th>What It Does</th><th>Example</th></tr>
+          <tr><td><code>.append(x)</code></td><td>Adds item <code>x</code> to the end of the list.</td><td><code>lst.append(5)</code></td></tr>
+          <tr><td><code>.remove(x)</code></td><td>Removes the first occurrence of item <code>x</code> from the list.</td><td><code>lst.remove(3)</code></td></tr>
+          <tr><td><code>.sort()</code></td><td>Sorts the list in ascending order (changes the original).</td><td><code>lst.sort()</code></td></tr>
+          <tr><td><code>.reverse()</code></td><td>Reverses the order of items in the list.</td><td><code>lst.reverse()</code></td></tr>
+          <tr><td><code>.insert(i, x)</code></td><td>Inserts item <code>x</code> at index <code>i</code>.</td><td><code>lst.insert(0, 99)</code></td></tr>
+          <tr><td><code>.pop()</code></td><td>Removes and returns the last item from the list.</td><td><code>last = lst.pop()</code></td></tr>
+          <tr><td><code>.count(x)</code></td><td>Returns how many times item <code>x</code> appears in the list.</td><td><code>lst.count(5)</code></td></tr>
+          <tr><td><code>.index(x)</code></td><td>Returns the index of the first occurrence of item <code>x</code>.</td><td><code>lst.index(5)</code></td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tuple Operations -->
+  <div class="q-card" id="cs3">
+    <div class="q-header" onclick="tog('cs3')">
+      <span class="q-badge c-cheat">📦</span>
+      <span class="q-title">Tuple Operations</span>
+      <span class="q-arrow">▾</span>
+    </div>
+    <div class="q-body">
+      <div class="block">
+        <table class="concept-table">
+          <tr><th>Operation</th><th>What It Does</th><th>Example</th></tr>
+          <tr><td><code>tpl[0]</code></td><td>Accesses the first item of the tuple by index.</td><td><code>("a", "b")[0]</code> returns "a"</td></tr>
+          <tr><td><code>tpl[-1]</code></td><td>Accesses the last item using negative indexing.</td><td><code>("a", "b")[-1]</code> returns "b"</td></tr>
+          <tr><td><code>tpl[1:3]</code></td><td>Slices from index 1 up to (not including) index 3.</td><td><code>(1, 2, 3, 4)[1:3]</code> returns (2, 3)</td></tr>
+          <tr><td><code>len(tpl)</code></td><td>Returns the number of items in the tuple.</td><td><code>len((1, 2, 3))</code> returns 3</td></tr>
+          <tr><td>Unpacking</td><td>Assigns each element of a tuple to a separate variable.</td><td><code>name, price = ("Pen", 10)</code></td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dictionary Methods -->
+  <div class="q-card" id="cs4">
+    <div class="q-header" onclick="tog('cs4')">
+      <span class="q-badge c-cheat">📚</span>
+      <span class="q-title">Dictionary Methods</span>
+      <span class="q-arrow">▾</span>
+    </div>
+    <div class="q-body">
+      <div class="block">
+        <table class="concept-table">
+          <tr><th>Method / Operation</th><th>What It Does</th><th>Example</th></tr>
+          <tr><td><code>d["key"]</code></td><td>Gets the value for the given key (raises error if missing).</td><td><code>d["name"]</code></td></tr>
+          <tr><td><code>d["key"] = val</code></td><td>Adds a new key-value pair or updates an existing one.</td><td><code>d["age"] = 25</code></td></tr>
+          <tr><td><code>.get(key, default)</code></td><td>Safely gets a value, returns default if the key does not exist.</td><td><code>d.get("age", 0)</code></td></tr>
+          <tr><td><code>.items()</code></td><td>Returns all key-value pairs so you can loop through them.</td><td><code>for k, v in d.items():</code></td></tr>
+          <tr><td><code>.keys()</code></td><td>Returns all the keys in the dictionary.</td><td><code>d.keys()</code></td></tr>
+          <tr><td><code>.values()</code></td><td>Returns all the values in the dictionary.</td><td><code>d.values()</code></td></tr>
+          <tr><td><code>"key" in d</code></td><td>Checks if a key exists in the dictionary (True or False).</td><td><code>"name" in d</code></td></tr>
+          <tr><td><code>del d["key"]</code></td><td>Deletes the key-value pair for the given key.</td><td><code>del d["age"]</code></td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- String Methods -->
+  <div class="q-card" id="cs5">
+    <div class="q-header" onclick="tog('cs5')">
+      <span class="q-badge c-cheat">✉</span>
+      <span class="q-title">String Methods</span>
+      <span class="q-arrow">▾</span>
+    </div>
+    <div class="q-body">
+      <div class="block">
+        <table class="concept-table">
+          <tr><th>Method</th><th>What It Does</th><th>Example</th></tr>
+          <tr><td><code>.lower()</code></td><td>Converts all characters to lowercase.</td><td><code>"HELLO".lower()</code> returns "hello"</td></tr>
+          <tr><td><code>.upper()</code></td><td>Converts all characters to uppercase.</td><td><code>"hello".upper()</code> returns "HELLO"</td></tr>
+          <tr><td><code>.strip()</code></td><td>Removes leading and trailing spaces from a string.</td><td><code>" hi ".strip()</code> returns "hi"</td></tr>
+          <tr><td><code>.split()</code></td><td>Splits a string into a list of words by spaces.</td><td><code>"a b c".split()</code> returns ["a", "b", "c"]</td></tr>
+          <tr><td><code>.replace(a, b)</code></td><td>Replaces all occurrences of <code>a</code> with <code>b</code>.</td><td><code>"hi".replace("hi", "bye")</code></td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Control Flow Keywords -->
+  <div class="q-card" id="cs6">
+    <div class="q-header" onclick="tog('cs6')">
+      <span class="q-badge c-cheat">⚡</span>
+      <span class="q-title">Control Flow Keywords</span>
+      <span class="q-arrow">▾</span>
+    </div>
+    <div class="q-body">
+      <div class="block">
+        <table class="concept-table">
+          <tr><th>Keyword</th><th>What It Does</th><th>Example</th></tr>
+          <tr><td><code>if</code></td><td>Runs a block of code only when the condition is True.</td><td><code>if x > 0:</code></td></tr>
+          <tr><td><code>elif</code></td><td>Checks another condition if the previous <code>if</code> was False.</td><td><code>elif x == 0:</code></td></tr>
+          <tr><td><code>else</code></td><td>Runs when none of the above conditions were True.</td><td><code>else:</code></td></tr>
+          <tr><td><code>for</code></td><td>Loops through each item in a list, tuple, or range.</td><td><code>for x in lst:</code></td></tr>
+          <tr><td><code>while</code></td><td>Keeps looping as long as the condition stays True.</td><td><code>while True:</code></td></tr>
+          <tr><td><code>break</code></td><td>Immediately exits the current loop.</td><td><code>break</code></td></tr>
+          <tr><td><code>continue</code></td><td>Skips the rest of the current loop iteration and goes to next.</td><td><code>continue</code></td></tr>
+          <tr><td><code>def</code></td><td>Defines a new function with a name and parameters.</td><td><code>def greet(name):</code></td></tr>
+          <tr><td><code>return</code></td><td>Sends a value back from a function to the caller.</td><td><code>return total</code></td></tr>
+          <tr><td><code>lambda</code></td><td>Creates a small anonymous function in one line.</td><td><code>lambda x: x[1]</code></td></tr>
+          <tr><td><code>pass</code></td><td>Does nothing, used as a placeholder for empty code blocks.</td><td><code>if True: pass</code></td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Operators -->
+  <div class="q-card" id="cs7">
+    <div class="q-header" onclick="tog('cs7')">
+      <span class="q-badge c-cheat">➕</span>
+      <span class="q-title">Operators</span>
+      <span class="q-arrow">▾</span>
+    </div>
+    <div class="q-body">
+      <div class="block">
+        <table class="concept-table">
+          <tr><th>Operator</th><th>What It Does</th><th>Example</th></tr>
+          <tr><td><code>+</code></td><td>Adds two numbers or joins two strings.</td><td><code>3 + 5</code> returns 8</td></tr>
+          <tr><td><code>-</code></td><td>Subtracts one number from another.</td><td><code>10 - 4</code> returns 6</td></tr>
+          <tr><td><code>*</code></td><td>Multiplies two numbers.</td><td><code>3 * 4</code> returns 12</td></tr>
+          <tr><td><code>/</code></td><td>Divides and returns a decimal result.</td><td><code>10 / 3</code> returns 3.333...</td></tr>
+          <tr><td><code>//</code></td><td>Divides and returns only the whole number part.</td><td><code>10 // 3</code> returns 3</td></tr>
+          <tr><td><code>%</code></td><td>Returns the remainder after division (modulo).</td><td><code>10 % 3</code> returns 1</td></tr>
+          <tr><td><code>==</code></td><td>Checks if two values are equal.</td><td><code>5 == 5</code> returns True</td></tr>
+          <tr><td><code>!=</code></td><td>Checks if two values are not equal.</td><td><code>5 != 3</code> returns True</td></tr>
+          <tr><td><code>+=</code></td><td>Adds a value to a variable and saves the result.</td><td><code>x += 5</code></td></tr>
+          <tr><td><code>in</code></td><td>Checks if a value exists inside a list, tuple, or dict.</td><td><code>3 in [1, 2, 3]</code> returns True</td></tr>
+          <tr><td><code>not in</code></td><td>Checks if a value does NOT exist in a collection.</td><td><code>4 not in [1, 2, 3]</code> returns True</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end cheat section -->
 
 </div><!-- end main -->
 
