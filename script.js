@@ -554,43 +554,43 @@ const SECTIONS = [
     questions: [
       {
         id: 'q31',
-        title: 'Sort 6,2,9,1,5 using Bubble Sort; then Binary Search for 5',
+        title: 'Sort [6, 2, 9, 1, 5] using Bubble Sort; then Binary Search for 5',
         blocks: [
           { type: 'exp', label: '💡 How Bubble Sort works', html: '<strong>Bubble Sort</strong> repeatedly compares adjacent elements and swaps them if they\'re in wrong order. Each full pass "bubbles" the largest unsorted element to its correct position. Repeat for n-1 passes.' },
           { type: 'ans', label: '✅ Bubble Sort Steps', content: [
-            { text: 'Start: 6,2,9,1,5' },
+            { text: 'Start: [6, 2, 9, 1, 5]' },
             { steps: [
-              { n: 'Pass 1', t: 'Compare pairs L to R: swap(6,2)→2,6,9,1,5 | no swap(6,9) | swap(9,1)→2,6,1,9,5 | swap(9,5)→ 2,6,1,5,9' },
-              { n: 'Pass 2', t: '2,6,1,5,9: no swap | swap(6,1)→2,1,6,5,9 | swap(6,5)→2,1,5,6,9 | 9 fixed' },
-              { n: 'Pass 3', t: '2,1,5,6,9: swap(2,1)→1,2,5,6,9 | rest sorted' },
-              { n: 'Pass 4', t: '1,2,5,6,9: no swaps → SORTED' }
+              { n: 'Pass 1', t: 'Compare pairs L→R: <code>swap(6,2)</code>→[2, 6, 9, 1, 5] | no swap(6,9) | <code>swap(9,1)</code>→[2, 6, 1, 9, 5] | <code>swap(9,5)</code>→[2, 6, 1, 5, 9]' },
+              { n: 'Pass 2', t: '[2, 6, 1, 5, 9]: no swap | <code>swap(6,1)</code>→[2, 1, 6, 5, 9] | <code>swap(6,5)</code>→[2, 1, 5, 6, 9] | 9 fixed' },
+              { n: 'Pass 3', t: '[2, 1, 5, 6, 9]: <code>swap(2,1)</code>→[1, 2, 5, 6, 9] | rest sorted' },
+              { n: 'Pass 4', t: '[1, 2, 5, 6, 9]: no swaps → SORTED' }
             ]},
-            { final: 'Sorted: 1, 2, 5, 6, 9' }
+            { final: 'Sorted: [1, 2, 5, 6, 9]' }
           ]},
           { type: 'ans', label: '🔍 Binary Search for 5', content: [
-            { text: 'Array: [1, 2, 5, 6, 9], Search: 5' },
+            { text: 'Array: [1, 2, 5, 6, 9], Target: <code>5</code>' },
             { steps: [
-              { n: 'Step 1', t: 'Low=0, High=4, Mid=2 → arr[2]=5 → FOUND!' }
+              { n: 'Step 1', t: '<code>Low=0</code>, <code>High=4</code>, <code>Mid=2</code> → <code>arr[2]=5</code> → FOUND!' }
             ]},
             { final: '5 found at index 2 ✓ (1 step!)' }
           ]},
           { type: 'pq', items: [
-            { q: 'P1. Sort 5,3,1,4,2 using bubble sort. Show Pass 1 step by step.', a: 'Pass 1: swap(5,3)→3,5,1,4,2 | swap(5,1)→3,1,5,4,2 | swap(5,4)→3,1,4,5,2 | swap(5,2)→3,1,4,2,5. After pass 1: 3,1,4,2,5' },
-            { q: 'P2. Binary search on [1,3,5,7,9,11]. Search for 7. Show all steps.', a: 'Low=0,High=5,Mid=2→arr[2]=5&lt;7→Low=3. Mid=4→arr[4]=9&gt;7→High=3. Mid=3→arr[3]=7=FOUND at index 3.' }
+            { q: 'P1. Sort [5, 3, 1, 4, 2] using bubble sort. Show Pass 1 step by step.', a: 'Pass 1: <code>swap(5,3)</code>→[3, 5, 1, 4, 2] | <code>swap(5,1)</code>→[3, 1, 5, 4, 2] | <code>swap(5,4)</code>→[3, 1, 4, 5, 2] | <code>swap(5,2)</code>→[3, 1, 4, 2, 5]. After Pass 1: [3, 1, 4, 2, 5]' },
+            { q: 'P2. Binary search on [1, 3, 5, 7, 9, 11]. Search for 7. Show all steps.', a: '<code>Low=0</code>,<code>High=5</code>,<code>Mid=2</code>→<code>arr[2]=5</code>&lt;7→<code>Low=3</code>. <code>Mid=4</code>→<code>arr[4]=9</code>&gt;7→<code>High=3</code>. <code>Mid=3</code>→<code>arr[3]=7</code>=FOUND at index 3.' }
           ]}
         ]
       },
       {
         id: 'q32',
-        title: 'Sort 10,7,3,8,4; then search for 8',
+        title: 'Sort [10, 7, 3, 8, 4]; then search for 8',
         blocks: [
           { type: 'ans', label: '✅ Answer', content: [
             { steps: [
-              { n: 'Pass1', t: '10,7,3,8,4: swap(10,7)→7,10,3,8,4 | swap(10,3)→7,3,10,8,4 | swap(10,8)→7,3,8,10,4 | swap(10,4)→7,3,8,4,10' },
-              { n: 'Pass2', t: '7,3,8,4,10: swap(7,3)→3,7,8,4,10 | no | swap(8,4)→3,7,4,8,10' },
-              { n: 'Pass3', t: '3,7,4,8,10: swap(7,4)→3,4,7,8,10 → SORTED' }
+              { n: 'Pass1', t: '[10, 7, 3, 8, 4]: <code>swap(10,7)</code>→[7, 10, 3, 8, 4] | <code>swap(10,3)</code>→[7, 3, 10, 8, 4] | <code>swap(10,8)</code>→[7, 3, 8, 10, 4] | <code>swap(10,4)</code>→[7, 3, 8, 4, 10]' },
+              { n: 'Pass2', t: '[7, 3, 8, 4, 10]: <code>swap(7,3)</code>→[3, 7, 8, 4, 10] | no | <code>swap(8,4)</code>→[3, 7, 4, 8, 10]' },
+              { n: 'Pass3', t: '[3, 7, 4, 8, 10]: <code>swap(7,4)</code>→[3, 4, 7, 8, 10] → SORTED' }
             ]},
-            { final: 'Sorted: 3,4,7,8,10 | Binary Search for 8: Mid=7, 7&lt;8 → Low=3, Mid=8 FOUND at index 3 ✓' }
+            { final: 'Sorted: [3, 4, 7, 8, 10] | Binary Search for 8: <code>Mid=2</code>→<code>arr[2]=7</code>&lt;8→<code>Low=3</code>, <code>Mid=3</code>→<code>arr[3]=8</code> FOUND at index 3 ✓' }
           ]},
           { type: 'pq', items: [
             { q: 'P1. After sorting 10,7,3,8,4 → how many comparisons did bubble sort make in Pass 1?', a: '4 comparisons in pass 1 (n-1 = 5-1 = 4 for 5 elements).' },
@@ -600,28 +600,28 @@ const SECTIONS = [
       },
       {
         id: 'q33',
-        title: 'Sort 15,12,9,6,3; then search for 12',
+        title: 'Sort [15, 12, 9, 6, 3]; then search for 12',
         blocks: [
           { type: 'ans', label: '✅ Answer', content: [
             { text: 'Note: This is already in descending order, so Bubble Sort must reverse it entirely.' },
-            { final: 'Sorted: 3,6,9,12,15 | Binary Search for 12: Low=0,High=4,Mid=2→arr[2]=9&lt;12→Low=3. Mid=3→arr[3]=12 FOUND ✓' }
+            { final: 'Sorted: [3, 6, 9, 12, 15] | Binary Search for 12: <code>Low=0</code>,<code>High=4</code>,<code>Mid=2</code>→<code>arr[2]=9</code>&lt;12→<code>Low=3</code>. <code>Mid=3</code>→<code>arr[3]=12</code> FOUND ✓' }
           ]},
           { type: 'pq', items: [
             { q: 'P1. Why is a reverse-sorted list the WORST case for bubble sort?', a: 'Every pair needs swapping. Total comparisons = n(n-1)/2. For 5 elements = 10 comparisons. Maximum possible.' },
-            { q: 'P2. Sort [5,5,3,3,1] using bubble sort. What happens with equal elements?', a: 'Equal elements are not swapped (stable sort). Result: 1,3,3,5,5. Bubble sort is stable.' }
+            { q: 'P2. Sort [5, 5, 3, 3, 1] using bubble sort. What happens with equal elements?', a: 'Equal elements are not swapped (stable sort). Result: [1, 3, 3, 5, 5]. Bubble sort is stable.' }
           ]}
         ]
       },
       {
         id: 'q34',
-        title: 'Sort 8,4,7,2,6: show 2 passes; then search for 7',
+        title: 'Sort [8, 4, 7, 2, 6]: show 2 passes; then search for 7',
         blocks: [
           { type: 'ans', label: '✅ Answer', content: [
             { steps: [
-              { n: 'Pass1', t: '8,4,7,2,6 → swap(8,4)→4,8,7,2,6 | swap(8,7)→4,7,8,2,6 | swap(8,2)→4,7,2,8,6 | swap(8,6)→4,7,2,6,8 ← End Pass 1: 8 is in place' },
-              { n: 'Pass2', t: '4,7,2,6,8 → no swap(4,7) | swap(7,2)→4,2,7,6,8 | swap(7,6)→4,2,6,7,8 ← End Pass 2' }
+              { n: 'Pass1', t: '[8, 4, 7, 2, 6] → <code>swap(8,4)</code>→[4, 8, 7, 2, 6] | <code>swap(8,7)</code>→[4, 7, 8, 2, 6] | <code>swap(8,2)</code>→[4, 7, 2, 8, 6] | <code>swap(8,6)</code>→[4, 7, 2, 6, 8] ← End Pass 1: 8 is in place' },
+              { n: 'Pass2', t: '[4, 7, 2, 6, 8] → no swap(4,7) | <code>swap(7,2)</code>→[4, 2, 7, 6, 8] | <code>swap(7,6)</code>→[4, 2, 6, 7, 8] ← End Pass 2' }
             ]},
-            { final: 'After 2 passes: 4,2,6,7,8 (not fully sorted yet, but 2 passes shown)\nFully sorted: 2,4,6,7,8 | Search 7: found at index 3 ✓' }
+            { final: 'After 2 passes: [4, 2, 6, 7, 8] (not fully sorted yet, but 2 passes shown)\nFully sorted: [2, 4, 6, 7, 8] | Search 7: found at index 3 ✓' }
           ]},
           { type: 'pq', items: [
             { q: 'P1. After Pass 2 on 8,4,7,2,6, which elements are guaranteed to be in correct final position?', a: 'After k passes, the last k elements are in final position. After 2 passes: 7 and 8 are in correct positions.' },
@@ -631,36 +631,36 @@ const SECTIONS = [
       },
       {
         id: 'q35',
-        title: 'Sort 20,10,30,5,15; then search for 15',
+        title: 'Sort [20, 10, 30, 5, 15]; then search for 15',
         blocks: [
           { type: 'ans', label: '✅ Answer', content: [
-            { final: 'Sorted: 5,10,15,20,30\nBinary Search for 15: Low=0,High=4,Mid=2→arr[2]=15 FOUND at index 2 in 1 step! ✓' }
+            { final: 'Sorted: [5, 10, 15, 20, 30]\nBinary Search for 15: <code>Low=0</code>,<code>High=4</code>,<code>Mid=2</code>→<code>arr[2]=15</code> FOUND at index 2 in 1 step! ✓' }
           ]},
           { type: 'pq', items: [
             { q: 'P1. What is the time complexity of Bubble Sort?', a: 'O(n²) in worst and average case. O(n) best case (already sorted). Space: O(1).' },
-            { q: 'P2. What is the time complexity of Binary Search?', a: 'O(log₂ n). For 1000 elements, max ~10 comparisons. Much faster than linear search O(n).' }
+            { q: 'P2. What is the time complexity of Binary Search?', a: '<code>O(log₂ n)</code>. For 1000 elements, max ~10 comparisons. Much faster than linear search <code>O(n)</code>.' }
           ]}
         ]
       },
       {
         id: 'q36',
-        title: 'Sort 11,3,14,7,9; then search for 3',
+        title: 'Sort [11, 3, 14, 7, 9]; then search for 3',
         blocks: [
           { type: 'ans', label: '✅ Answer', content: [
-            { final: 'Sorted: 3,7,9,11,14\nBinary Search for 3: Low=0,High=4,Mid=2→arr[2]=9&gt;3→High=1. Mid=0→arr[0]=3 FOUND at index 0 ✓' }
+            { final: 'Sorted: [3, 7, 9, 11, 14]\nBinary Search for 3: <code>Low=0</code>,<code>High=4</code>,<code>Mid=2</code>→<code>arr[2]=9</code>&gt;3→<code>High=1</code>. <code>Mid=0</code>→<code>arr[0]=3</code> FOUND at index 0 ✓' }
           ]},
           { type: 'pq', items: [
-            { q: 'P1. Binary search on [3,7,9,11,14] for value 1 (not in list). What happens?', a: 'Mid=2→9&gt;1→High=1. Mid=0→3&gt;1→High=−1. Low&gt;High → NOT FOUND.' },
+            { q: 'P1. Binary search on [3, 7, 9, 11, 14] for value 1 (not in list). What happens?', a: '<code>Mid=2</code>→<code>arr[2]=9</code>&gt;1→<code>High=1</code>. <code>Mid=0</code>→<code>arr[0]=3</code>&gt;1→<code>High=−1</code>. <code>Low</code>&gt;<code>High</code> → NOT FOUND.' },
             { q: 'P2. Why is searching for the smallest element (3) potentially slower in binary search than finding the middle element?', a: 'Binary search starts at the middle. If the target is at an edge (like index 0), it takes more halving steps to reach it, potentially up to log₂(n) steps.' }
           ]}
         ]
       },
       {
         id: 'q37',
-        title: 'Sort 25,20,15,10,5; then search for 20',
+        title: 'Sort [25, 20, 15, 10, 5]; then search for 20',
         blocks: [
           { type: 'ans', label: '✅ Answer', content: [
-            { final: 'Sorted: 5,10,15,20,25\nBinary Search for 20: Low=0,High=4,Mid=2→arr[2]=15&lt;20→Low=3. Mid=3→arr[3]=20 FOUND ✓' }
+            { final: 'Sorted: [5, 10, 15, 20, 25]\nBinary Search for 20: <code>Low=0</code>,<code>High=4</code>,<code>Mid=2</code>→<code>arr[2]=15</code>&lt;20→<code>Low=3</code>. <code>Mid=3</code>→<code>arr[3]=20</code> FOUND ✓' }
           ]},
           { type: 'pq', items: [
             { q: 'P1. The input 25,20,15,10,5 is already sorted in descending order. Does bubble sort still work?', a: 'Yes, bubble sort always produces ascending order regardless of input. But descending input is the worst case and requires maximum swaps.' },
@@ -670,32 +670,32 @@ const SECTIONS = [
       },
       {
         id: 'q38',
-        title: 'Sort 9,1,8,2,7; then check if 6 exists',
+        title: 'Sort [9, 1, 8, 2, 7]; then check if 6 exists',
         blocks: [
           { type: 'ans', label: '✅ Answer', content: [
-            { final: 'Sorted: 1,2,7,8,9\nBinary Search for 6: Mid=2→arr[2]=7&gt;6→High=1. Mid=0→1&lt;6→Low=1. Mid=1→arr[1]=2&lt;6→Low=2. Low&gt;High → 6 NOT FOUND ✗' }
+            { final: 'Sorted: [1, 2, 7, 8, 9]\nBinary Search for 6: <code>Mid=2</code>→<code>arr[2]=7</code>&gt;6→<code>High=1</code>. <code>Mid=0</code>→<code>arr[0]=1</code>&lt;6→<code>Low=1</code>. <code>Mid=1</code>→<code>arr[1]=2</code>&lt;6→<code>Low=2</code>. <code>Low</code>&gt;<code>High</code> → 6 NOT FOUND ✗' }
           ]},
           { type: 'pq', items: [
-            { q: 'P1. What condition ends a binary search with "not found"?', a: 'When Low &gt; High. The search range becomes empty, meaning the element is not in the array.' },
-            { q: 'P2. Sort 9,1,8,2,7: how many passes of bubble sort until no swaps occur?', a: 'Needs approximately 3 to 4 passes. The final sorted result is 1,2,7,8,9.' }
+            { q: 'P1. What condition ends a binary search with "not found"?', a: 'When <code>Low</code> &gt; <code>High</code>. The search range becomes empty, meaning the element is not in the array.' },
+            { q: 'P2. Sort [9, 1, 8, 2, 7]: how many passes of bubble sort until no swaps occur?', a: 'Needs approximately 3 to 4 passes. The final sorted result is [1, 2, 7, 8, 9].' }
           ]}
         ]
       },
       {
         id: 'q39',
-        title: 'Sort 4,2,6,1,3; then search for 4',
+        title: 'Sort [4, 2, 6, 1, 3]; then search for 4',
         blocks: [
           { type: 'ans', label: '✅ Answer', content: [
             { steps: [
-              { n: 'Pass1', t: 'swap(4,2)→2,4,6,1,3 | no(4,6) | swap(6,1)→2,4,1,6,3 | swap(6,3)→2,4,1,3,6' },
-              { n: 'Pass2', t: 'no(2,4) | swap(4,1)→2,1,4,3,6 | swap(4,3)→2,1,3,4,6' },
-              { n: 'Pass3', t: 'swap(2,1)→1,2,3,4,6 | rest sorted' }
+              { n: 'Pass1', t: '<code>swap(4,2)</code>→[2, 4, 6, 1, 3] | no(4,6) | <code>swap(6,1)</code>→[2, 4, 1, 6, 3] | <code>swap(6,3)</code>→[2, 4, 1, 3, 6]' },
+              { n: 'Pass2', t: 'no(2,4) | <code>swap(4,1)</code>→[2, 1, 4, 3, 6] | <code>swap(4,3)</code>→[2, 1, 3, 4, 6]' },
+              { n: 'Pass3', t: '<code>swap(2,1)</code>→[1, 2, 3, 4, 6] | rest sorted' }
             ]},
-            { final: 'Sorted: 1,2,3,4,6 | Search 4: Mid=2→arr[2]=3&lt;4→Low=3. Mid=3→arr[3]=4 FOUND ✓' }
+            { final: 'Sorted: [1, 2, 3, 4, 6] | Search 4: <code>Mid=2</code>→<code>arr[2]=3</code>&lt;4→<code>Low=3</code>. <code>Mid=3</code>→<code>arr[3]=4</code> FOUND ✓' }
           ]},
           { type: 'pq', items: [
-            { q: 'P1. After sorting [4,2,6,1,3]→[1,2,3,4,6], use binary search to find 6.', a: 'Low=0,High=4,Mid=2→3&lt;6→Low=3. Mid=3→4&lt;6→Low=4. Mid=4→arr[4]=6 FOUND at index 4.' },
-            { q: 'P2. On [1,2,3,4,6], how many steps to find 1 using binary search?', a: 'Mid=2→3&gt;1→High=1. Mid=0→1=1 FOUND in 2 steps.' }
+            { q: 'P1. After sorting [4, 2, 6, 1, 3]→[1, 2, 3, 4, 6], use binary search to find 6.', a: '<code>Low=0</code>,<code>High=4</code>,<code>Mid=2</code>→<code>arr[2]=3</code>&lt;6→<code>Low=3</code>. <code>Mid=3</code>→<code>arr[3]=4</code>&lt;6→<code>Low=4</code>. <code>Mid=4</code>→<code>arr[4]=6</code> FOUND at index 4.' },
+            { q: 'P2. On [1, 2, 3, 4, 6], how many steps to find 1 using binary search?', a: '<code>Mid=2</code>→<code>arr[2]=3</code>&gt;1→<code>High=1</code>. <code>Mid=0</code>→<code>arr[0]=1</code>=1 FOUND in 2 steps.' }
           ]}
         ]
       },
@@ -708,7 +708,7 @@ const SECTIONS = [
             { steps: [
               { n: 'Logic', t: 'Binary search works by comparing the target with the MIDDLE element, then eliminating HALF the remaining elements.' },
               { n: 'Why', t: 'This elimination only works if data is sorted. If arr[mid] &lt; target, we KNOW all elements to the LEFT are also smaller. This assumption fails in unsorted data.' },
-              { n: 'Example', t: 'Unsorted [3,9,1,7,5], search for 7: Mid=1(value=9), 9&gt;7 → go left → [3] → not found! But 7 IS in the array at index 3.' }
+              { n: 'Example', t: 'Unsorted [3, 9, 1, 7, 5], search for 7: <code>Mid=2</code>(value=1), 1&lt;7 → go right → but 7 IS at index 3, which we might skip! Binary search assumes sorted order to make elimination decisions.' }
             ]},
             { final: 'Conclusion: Sorted order lets binary search make guaranteed decisions. Without it, eliminating halves is invalid and gives wrong answers. That is why we sort with Bubble Sort first.' }
           ]},
@@ -930,25 +930,56 @@ const SECTIONS = [
 
 
 // ==========================================================
+// MATH MATRIX PARSER
+// ==========================================================
+
+function formatMath(str) {
+  if (!str) return str;
+
+  // PASS 1: Match 2D matrices [[...],[...]] → grid with brackets
+  str = str.replace(/\[\s*\[([^\[\]]*(?:\]\s*,\s*\[[^\[\]]*)*)\]\s*\]/g, function(match) {
+    let inner = match.replace(/^\[\s*/, '').replace(/\s*\]$/, '');
+    let rows = inner.split(/\]\s*,\s*\[/);
+    rows[0] = rows[0].replace(/^\[/, '');
+    rows[rows.length - 1] = rows[rows.length - 1].replace(/\]$/, '');
+
+    let html = '<div class="math-matrix">';
+    rows.forEach(function(row) {
+      let cells = row.split(/\s*,\s*/);
+      html += '<div class="matrix-row">';
+      cells.forEach(function(cell) {
+        html += '<div class="matrix-cell">' + cell.trim() + '</div>';
+      });
+      html += '</div>';
+    });
+    html += '</div>';
+    return html;
+  });
+
+  return str;
+}
+
+
+// ==========================================================
 // RENDERING ENGINE
 // ==========================================================
 
 function renderContentItem(c) {
   let h = '';
-  if (c.text !== undefined) h += c.text;
-  if (c.formula !== undefined) h += `<div class="formula">${c.formula}</div>`;
+  if (c.text !== undefined) h += formatMath(c.text);
+  if (c.formula !== undefined) h += `<div class="formula">${formatMath(c.formula)}</div>`;
   if (c.steps) {
     h += '<ol class="steps">';
-    c.steps.forEach(s => { h += `<li data-n="${s.n}">${s.t}</li>`; });
+    c.steps.forEach(s => { h += `<li data-n="${s.n}">${formatMath(s.t)}</li>`; });
     h += '</ol>';
   }
-  if (c.final !== undefined) h += `<div class="ans-final">${c.final}</div>`;
+  if (c.final !== undefined) h += `<div class="ans-final">${formatMath(c.final)}</div>`;
   return h;
 }
 
 function renderBlock(b) {
   if (b.type === 'exp') {
-    return `<div class="block"><div class="block-label">${b.label}</div><div class="explanation">${b.html}</div></div>`;
+    return `<div class="block"><div class="block-label">${b.label}</div><div class="explanation">${formatMath(b.html)}</div></div>`;
   }
   if (b.type === 'ans') {
     let inner = '';
@@ -958,7 +989,7 @@ function renderBlock(b) {
   if (b.type === 'pq') {
     let items = '';
     b.items.forEach(item => {
-      items += `<div class="pq-item"><div class="pq-q">${item.q}</div><button class="show-pq-btn" onclick="revealAns(this)">Show Answer ▾</button><div class="pq-ans-hidden"><div class="pq-a">${item.a}</div></div></div>`;
+      items += `<div class="pq-item"><div class="pq-q">${formatMath(item.q)}</div><button class="show-pq-btn" onclick="revealAns(this)">Show Answer ▾</button><div class="pq-ans-hidden"><div class="pq-a">${formatMath(item.a)}</div></div></div>`;
     });
     return `<div class="block"><div class="block-label">🎯 Practice Questions</div><div class="pq-box"><div class="pq-header">📝 Try These</div>${items}</div></div>`;
   }
@@ -968,7 +999,7 @@ function renderBlock(b) {
 function renderQuestion(q) {
   let blocks = '';
   q.blocks.forEach(b => { blocks += renderBlock(b); });
-  return `<div class="q-card" id="${q.id}"><div class="q-header" onclick="toggle('${q.id}')"><span class="q-num">${q.id.replace('q','Q')}</span><span class="q-title">${q.title}</span><span class="q-toggle">▾</span></div><div class="q-body">${blocks}</div></div>`;
+  return `<div class="q-card" id="${q.id}"><div class="q-header" onclick="toggle('${q.id}')"><span class="q-num">${q.id.replace('q','Q')}</span><span class="q-title">${formatMath(q.title)}</span><span class="q-toggle">▾</span></div><div class="q-body">${blocks}</div></div>`;
 }
 
 function renderAll() {
